@@ -1,5 +1,5 @@
 //
-//  FourthViewController.swift
+//  MeViewController.swift
 //  Catalog
 //
 //  Created by student on 2/15/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FourthViewController: UIViewController {
+class MeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

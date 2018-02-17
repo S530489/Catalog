@@ -1,5 +1,5 @@
 //
-//  FifthViewController.swift
+//  WeHaveViewController.swift
 //  Catalog
 //
 //  Created by student on 2/15/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FifthViewController: UIViewController {
+class WeHaveViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
