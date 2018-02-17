@@ -14,7 +14,9 @@ Members: 1. Chaithanya Manas Reddy Matta – S530905
 
 Project Description: 
 
-	The basic concept of our project is shopping list based on a server; it is mostly useful for family members, roommates, etc. The basic idea behind this IOS app is adding the items to the list in collaboration with the members added. 
+The basic concept of our project is shopping list based on a server; it is mostly useful for family members, roommates, etc. 
+	
+The basic idea behind this IOS app is adding the items to the list in collaboration with the members added. 
 
 Highlights:
 
