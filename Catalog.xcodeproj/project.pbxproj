@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1955F8F020363532006C1C70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F8EF20363532006C1C70 /* AppDelegate.swift */; };
-		1955F8F220363532006C1C70 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F8F120363532006C1C70 /* FirstViewController.swift */; };
-		1955F8F420363532006C1C70 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F8F320363532006C1C70 /* SecondViewController.swift */; };
+		1955F8F220363532006C1C70 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F8F120363532006C1C70 /* AddItemViewController.swift */; };
+		1955F8F420363532006C1C70 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F8F320363532006C1C70 /* ListViewController.swift */; };
 		1955F8F720363532006C1C70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1955F8F520363532006C1C70 /* Main.storyboard */; };
 		1955F8F920363532006C1C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1955F8F820363532006C1C70 /* Assets.xcassets */; };
 		1955F8FC20363532006C1C70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1955F8FA20363532006C1C70 /* LaunchScreen.storyboard */; };
 		1955F90720363533006C1C70 /* CatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F90620363533006C1C70 /* CatalogTests.swift */; };
 		1955F91220363533006C1C70 /* CatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F91120363533006C1C70 /* CatalogUITests.swift */; };
-		3FE4EE1720363C2800856D99 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1620363C2800856D99 /* ThirdViewController.swift */; };
+		3FE4EE1720363C2800856D99 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1620363C2800856D99 /* CategoryViewController.swift */; };
 		3FE4EE1920363C3C00856D99 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1820363C3C00856D99 /* FourthViewController.swift */; };
 		3FE4EE1B20363C5B00856D99 /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1A20363C5B00856D99 /* FifthViewController.swift */; };
 /* End PBXBuildFile section */
@@ -40,8 +40,8 @@
 /* Begin PBXFileReference section */
 		1955F8EC20363532006C1C70 /* Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1955F8EF20363532006C1C70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1955F8F120363532006C1C70 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		1955F8F320363532006C1C70 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		1955F8F120363532006C1C70 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		1955F8F320363532006C1C70 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		1955F8F620363532006C1C70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1955F8F820363532006C1C70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1955F8FB20363532006C1C70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		1955F90D20363533006C1C70 /* CatalogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatalogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1955F91120363533006C1C70 /* CatalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogUITests.swift; sourceTree = "<group>"; };
 		1955F91320363533006C1C70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3FE4EE1620363C2800856D99 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		3FE4EE1620363C2800856D99 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		3FE4EE1820363C3C00856D99 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		3FE4EE1A20363C5B00856D99 /* FifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,10 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				1955F8EF20363532006C1C70 /* AppDelegate.swift */,
-				1955F8F120363532006C1C70 /* FirstViewController.swift */,
-				1955F8F320363532006C1C70 /* SecondViewController.swift */,
+				1955F8F120363532006C1C70 /* AddItemViewController.swift */,
+				1955F8F320363532006C1C70 /* ListViewController.swift */,
 				1955F8F520363532006C1C70 /* Main.storyboard */,
-				3FE4EE1620363C2800856D99 /* ThirdViewController.swift */,
+				3FE4EE1620363C2800856D99 /* CategoryViewController.swift */,
 				3FE4EE1820363C3C00856D99 /* FourthViewController.swift */,
 				3FE4EE1A20363C5B00856D99 /* FifthViewController.swift */,
 				1955F8F820363532006C1C70 /* Assets.xcassets */,
@@ -272,10 +272,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE4EE1B20363C5B00856D99 /* FifthViewController.swift in Sources */,
-				1955F8F420363532006C1C70 /* SecondViewController.swift in Sources */,
+				1955F8F420363532006C1C70 /* ListViewController.swift in Sources */,
 				1955F8F020363532006C1C70 /* AppDelegate.swift in Sources */,
-				3FE4EE1720363C2800856D99 /* ThirdViewController.swift in Sources */,
-				1955F8F220363532006C1C70 /* FirstViewController.swift in Sources */,
+				3FE4EE1720363C2800856D99 /* CategoryViewController.swift in Sources */,
+				1955F8F220363532006C1C70 /* AddItemViewController.swift in Sources */,
 				3FE4EE1920363C3C00856D99 /* FourthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

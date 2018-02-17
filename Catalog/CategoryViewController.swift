@@ -1,5 +1,5 @@
 //
-//  ThirdViewController.swift
+//  CategoryViewController.swift
 //  Catalog
 //
 //  Created by student on 2/15/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class CategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

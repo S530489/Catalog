@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  AddItemViewController.swift
 //  Catalog
 //
 //  Created by chaithanya manas reddy on 15/02/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class AddItemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
