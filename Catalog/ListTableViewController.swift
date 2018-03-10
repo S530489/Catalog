@@ -42,11 +42,11 @@ class ListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListOfItems", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = AppDelegate.myModel.items[indexPath.row].name
 
+        cell.textLabel?.text = AppDelegate.myModel.items[indexPath.row].name
         return cell
     }
- 
+    
 
     /*
     // Override to support conditional editing of the table view.
