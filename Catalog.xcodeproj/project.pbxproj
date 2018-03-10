@@ -19,7 +19,6 @@
 		198FDFB120535DAE006C875E /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FDFB020535DAE006C875E /* SignupViewController.swift */; };
 		19F380612053733300D1CA2C /* CategoryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F380602053733300D1CA2C /* CategoryListTableViewController.swift */; };
 		3F224EF820537AA300559754 /* ItemsInCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F224EF720537AA300559754 /* ItemsInCategoryTableViewController.swift */; };
-		3FE4EE1920363C3C00856D99 /* WeHaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1820363C3C00856D99 /* WeHaveViewController.swift */; };
 		3FE4EE1B20363C5B00856D99 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1A20363C5B00856D99 /* MeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,11 +111,9 @@
 			isa = PBXGroup;
 			children = (
 				1955F8EF20363532006C1C70 /* AppDelegate.swift */,
-				1A0525A620537425004794CC /* ListTableViewController.swift */,
 				198FDFAC205345E3006C875E /* LoginViewController.swift */,
 				198FDFB020535DAE006C875E /* SignupViewController.swift */,
 				1955F8F120363532006C1C70 /* AddItemViewController.swift */,
-				1A0525A820537FB7004794CC /* WeHaveTableViewController.swift */,
 				1955F8F520363532006C1C70 /* Main.storyboard */,
 				19F380602053733300D1CA2C /* CategoryListTableViewController.swift */,
 				3F224EF720537AA300559754 /* ItemsInCategoryTableViewController.swift */,
@@ -286,11 +283,9 @@
 				198FDFB120535DAE006C875E /* SignupViewController.swift in Sources */,
 				198FDFAD205345E3006C875E /* LoginViewController.swift in Sources */,
 				3FE4EE1B20363C5B00856D99 /* MeViewController.swift in Sources */,
-				1A0525A920537FB7004794CC /* WeHaveTableViewController.swift in Sources */,
 				19F380612053733300D1CA2C /* CategoryListTableViewController.swift in Sources */,
 				1955F8F020363532006C1C70 /* AppDelegate.swift in Sources */,
 				1955F8F220363532006C1C70 /* AddItemViewController.swift in Sources */,
-				1A0525A720537425004794CC /* ListTableViewController.swift in Sources */,
 				198FDFAF205348C0006C875E /* model.swift in Sources */,
 				3F224EF820537AA300559754 /* ItemsInCategoryTableViewController.swift in Sources */,
 			);
