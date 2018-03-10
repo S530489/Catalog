@@ -29,23 +29,42 @@ class CategoryListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return AppDelegate.myModel.categories.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryList", for: indexPath)
 
         // Configure the cell...
-
+        cell.textLabel?.text = AppDelegate.myModel.categories[indexPath.row]
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let Destination = segue.destination as! ItemsInCategoryTableViewController
+//
+//        let index = self.tableView.indexPathForSelectedRow?.row
+//
+//        Destination.categorySelected = AppDelegate.myModel.categories[index!]
+//        print(AppDelegate.myModel.categories[index!], "______________________________________")
+//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let Destination = segue.destination as! ItemsInCategoryTableViewController
+        
+        let selectedIndex = self.tableView.indexPathForSelectedRow?.row
+        Destination.categorySelected = AppDelegate.myModel.categories[selectedIndex!]
+    }
+ 
 
     /*
     // Override to support conditional editing of the table view.

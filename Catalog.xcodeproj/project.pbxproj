@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1955F8F020363532006C1C70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F8EF20363532006C1C70 /* AppDelegate.swift */; };
 		1955F8F220363532006C1C70 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F8F120363532006C1C70 /* AddItemViewController.swift */; };
-		1955F8F420363532006C1C70 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F8F320363532006C1C70 /* ListViewController.swift */; };
 		1955F8F720363532006C1C70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1955F8F520363532006C1C70 /* Main.storyboard */; };
 		1955F8F920363532006C1C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1955F8F820363532006C1C70 /* Assets.xcassets */; };
 		1955F8FC20363532006C1C70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1955F8FA20363532006C1C70 /* LaunchScreen.storyboard */; };
@@ -19,6 +18,7 @@
 		198FDFAF205348C0006C875E /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FDFAE205348C0006C875E /* model.swift */; };
 		198FDFB120535DAE006C875E /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FDFB020535DAE006C875E /* SignupViewController.swift */; };
 		19F380612053733300D1CA2C /* CategoryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F380602053733300D1CA2C /* CategoryListTableViewController.swift */; };
+		3F224EF820537AA300559754 /* ItemsInCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F224EF720537AA300559754 /* ItemsInCategoryTableViewController.swift */; };
 		3FE4EE1920363C3C00856D99 /* WeHaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1820363C3C00856D99 /* WeHaveViewController.swift */; };
 		3FE4EE1B20363C5B00856D99 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1A20363C5B00856D99 /* MeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -44,7 +44,6 @@
 		1955F8EC20363532006C1C70 /* Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1955F8EF20363532006C1C70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1955F8F120363532006C1C70 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
-		1955F8F320363532006C1C70 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		1955F8F620363532006C1C70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1955F8F820363532006C1C70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1955F8FB20363532006C1C70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		198FDFAE205348C0006C875E /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		198FDFB020535DAE006C875E /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		19F380602053733300D1CA2C /* CategoryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewController.swift; sourceTree = "<group>"; };
+		3F224EF720537AA300559754 /* ItemsInCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsInCategoryTableViewController.swift; sourceTree = "<group>"; };
 		3FE4EE1820363C3C00856D99 /* WeHaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeHaveViewController.swift; sourceTree = "<group>"; };
 		3FE4EE1A20363C5B00856D99 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,12 +112,14 @@
 			isa = PBXGroup;
 			children = (
 				1955F8EF20363532006C1C70 /* AppDelegate.swift */,
+				1A0525A620537425004794CC /* ListTableViewController.swift */,
 				198FDFAC205345E3006C875E /* LoginViewController.swift */,
 				198FDFB020535DAE006C875E /* SignupViewController.swift */,
 				1955F8F120363532006C1C70 /* AddItemViewController.swift */,
-				1955F8F320363532006C1C70 /* ListViewController.swift */,
+				1A0525A820537FB7004794CC /* WeHaveTableViewController.swift */,
 				1955F8F520363532006C1C70 /* Main.storyboard */,
 				19F380602053733300D1CA2C /* CategoryListTableViewController.swift */,
+				3F224EF720537AA300559754 /* ItemsInCategoryTableViewController.swift */,
 				3FE4EE1820363C3C00856D99 /* WeHaveViewController.swift */,
 				3FE4EE1A20363C5B00856D99 /* MeViewController.swift */,
 				1955F8F820363532006C1C70 /* Assets.xcassets */,
@@ -284,12 +286,13 @@
 				198FDFB120535DAE006C875E /* SignupViewController.swift in Sources */,
 				198FDFAD205345E3006C875E /* LoginViewController.swift in Sources */,
 				3FE4EE1B20363C5B00856D99 /* MeViewController.swift in Sources */,
-				1955F8F420363532006C1C70 /* ListViewController.swift in Sources */,
+				1A0525A920537FB7004794CC /* WeHaveTableViewController.swift in Sources */,
 				19F380612053733300D1CA2C /* CategoryListTableViewController.swift in Sources */,
 				1955F8F020363532006C1C70 /* AppDelegate.swift in Sources */,
 				1955F8F220363532006C1C70 /* AddItemViewController.swift in Sources */,
-				3FE4EE1920363C3C00856D99 /* WeHaveViewController.swift in Sources */,
+				1A0525A720537425004794CC /* ListTableViewController.swift in Sources */,
 				198FDFAF205348C0006C875E /* model.swift in Sources */,
+				3F224EF820537AA300559754 /* ItemsInCategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

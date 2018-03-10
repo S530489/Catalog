@@ -1,19 +1,17 @@
 //
-//  ItemsInCategoryTableViewController.swift
+//  WeHaveTableViewController.swift
 //  Catalog
 //
-//  Created by student on 3/9/18.
+//  Created by Chandra Mouli on 3/9/18.
 //  Copyright © 2018 Chaithanya Manas Reddy Matta. All rights reserved.
 //
 
 import UIKit
 
-class ItemsInCategoryTableViewController: UITableViewController {
-    var categorySelected = " "
+class WeHaveTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -36,14 +34,14 @@ class ItemsInCategoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return AppDelegate.myModel.findItemsInCategory(category: categorySelected).count
+        return AppDelegate.myModel.weHave.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemsInCategory", for: indexPath)
-        
-        cell.textLabel?.text = AppDelegate.myModel.findItemsInCategory(category: categorySelected)[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeHaveIdentifier", for: indexPath)
+        cell.textLabel?.text = AppDelegate.myModel.weHave[indexPath.row].name
+
         // Configure the cell...
 
         return cell
