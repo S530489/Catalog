@@ -178,7 +178,7 @@
                             <outlet property="delegate" destination="bcn-Iq-U0B" id="kEb-Dm-dDF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="k1t-3h-B2B"/>
+                    <navigationItem key="navigationItem" title="We Have" id="k1t-3h-B2B"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CEl-Dh-uW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
