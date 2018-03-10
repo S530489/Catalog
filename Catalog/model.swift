@@ -57,3 +57,59 @@ class model {
     
     
 }
+
+struct LoginData{
+    var Name:String
+    var Email:String
+    var Password:String
+    
+}
+class Login {
+    var Login : [LoginData]
+    
+    init() {
+        self.Login = []
+        self.loginData()
+    }
+    
+    func loginData(){
+        Login.append(LoginData.init(Name: "manas", Email: "manas@gmail.com", Password: "manas"))
+        Login.append(LoginData.init(Name: "sai", Email: "sai@gmail.com", Password: "sai"))
+        Login.append(LoginData.init(Name: "shiva", Email: "shiva@gmail.com", Password: "shiva"))
+        Login.append(LoginData.init(Name: "mouli", Email: "mouli@gmail.com", Password: "mouli"))
+        Login.append(LoginData.init(Name: "hitesh", Email: "hitesh@gmail.com", Password: "hitesh"))
+    }
+    
+    func login(name: String, password: String) -> Bool{
+        var a:Bool = false
+        for i in 0..<Login.count{
+            if (Login[i].Name == name) && (Login[i].Password == password) {
+                a = true
+            }
+            else{
+                a = false
+            }
+        }
+        return a
+    }
+    
+    
+    func signUp(name: String, email: String, password: String) {
+        Login.append(LoginData.init(Name: name, Email: email, Password: password))
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

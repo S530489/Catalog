@@ -21,14 +21,20 @@ class SignupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+//    func textField(_ textFieldToChange: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        return true
+//    }
+//
+    
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var reenterPasswordTF: UITextField!
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//    }
     
 
 }
