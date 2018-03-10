@@ -17,7 +17,8 @@
 		1955F91220363533006C1C70 /* CatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F91120363533006C1C70 /* CatalogUITests.swift */; };
 		198FDFAD205345E3006C875E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FDFAC205345E3006C875E /* LoginViewController.swift */; };
 		198FDFAF205348C0006C875E /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FDFAE205348C0006C875E /* model.swift */; };
-		3FE4EE1720363C2800856D99 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1620363C2800856D99 /* CategoryViewController.swift */; };
+		3F224EF42053591300559754 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F224EF32053591300559754 /* CategoryTableViewController.swift */; };
+		3F224EF6205366B500559754 /* ItemsInCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F224EF5205366B500559754 /* ItemsInCategoryTableViewController.swift */; };
 		3FE4EE1920363C3C00856D99 /* WeHaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1820363C3C00856D99 /* WeHaveViewController.swift */; };
 		3FE4EE1B20363C5B00856D99 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1A20363C5B00856D99 /* MeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -56,7 +57,8 @@
 		1955F91320363533006C1C70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		198FDFAC205345E3006C875E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		198FDFAE205348C0006C875E /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
-		3FE4EE1620363C2800856D99 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		3F224EF32053591300559754 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		3F224EF5205366B500559754 /* ItemsInCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsInCategoryTableViewController.swift; sourceTree = "<group>"; };
 		3FE4EE1820363C3C00856D99 /* WeHaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeHaveViewController.swift; sourceTree = "<group>"; };
 		3FE4EE1A20363C5B00856D99 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,13 +116,14 @@
 				1955F8F120363532006C1C70 /* AddItemViewController.swift */,
 				1955F8F320363532006C1C70 /* ListViewController.swift */,
 				1955F8F520363532006C1C70 /* Main.storyboard */,
-				3FE4EE1620363C2800856D99 /* CategoryViewController.swift */,
+				3F224EF5205366B500559754 /* ItemsInCategoryTableViewController.swift */,
 				3FE4EE1820363C3C00856D99 /* WeHaveViewController.swift */,
 				3FE4EE1A20363C5B00856D99 /* MeViewController.swift */,
 				1955F8F820363532006C1C70 /* Assets.xcassets */,
 				1955F8FA20363532006C1C70 /* LaunchScreen.storyboard */,
 				198FDFAE205348C0006C875E /* model.swift */,
 				1955F8FD20363532006C1C70 /* Info.plist */,
+				3F224EF32053591300559754 /* CategoryTableViewController.swift */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				TargetAttributes = {
 					1955F8EB20363532006C1C70 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					1955F90120363533006C1C70 = {
@@ -280,8 +284,9 @@
 				198FDFAD205345E3006C875E /* LoginViewController.swift in Sources */,
 				3FE4EE1B20363C5B00856D99 /* MeViewController.swift in Sources */,
 				1955F8F420363532006C1C70 /* ListViewController.swift in Sources */,
+				3F224EF42053591300559754 /* CategoryTableViewController.swift in Sources */,
+				3F224EF6205366B500559754 /* ItemsInCategoryTableViewController.swift in Sources */,
 				1955F8F020363532006C1C70 /* AppDelegate.swift in Sources */,
-				3FE4EE1720363C2800856D99 /* CategoryViewController.swift in Sources */,
 				1955F8F220363532006C1C70 /* AddItemViewController.swift in Sources */,
 				3FE4EE1920363C3C00856D99 /* WeHaveViewController.swift in Sources */,
 				198FDFAF205348C0006C875E /* model.swift in Sources */,
@@ -450,12 +455,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CM363246V5;
 				INFOPLIST_FILE = Catalog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.nwmissouri.Catalog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -465,6 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CM363246V5;
 				INFOPLIST_FILE = Catalog/Info.plist;
