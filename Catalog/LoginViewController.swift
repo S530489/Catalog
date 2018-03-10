@@ -24,9 +24,22 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
+    
+
+    
+//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//        var a:Bool = false
+//        
+//        if identifier == "login" {
+//        a = AppDelegate.login.login(name: usernameTF.text!, password: passwordTF.text!)
+//        }
+//        else {
+//            
+//        }
+//        return a
+//    }
+    
+    
     
     @IBAction func unwindFromSignup(segue : UIStoryboardSegue){
         
