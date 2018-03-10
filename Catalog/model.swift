@@ -38,6 +38,9 @@ class model {
         items = [item.init(name: "Egg", quantity: 30, units:unit.units,preferedStrore: stores.Walmart, category: "Grocery"),item.init(name: "Dove Soap", quantity: 3, units: unit.units,preferedStrore: stores.Walmart, category: "Health & Beauty"),item.init(name: "NoteBook", quantity: 5, units: unit.units,preferedStrore: stores.Costco, category: "Office Supplies"),item.init(name: "Head Phones", quantity: 1, units: unit.units,preferedStrore: stores.BestBuy, category: "Electronics"),item.init(name: "Bread", quantity: 2, units: unit.units,preferedStrore: stores.Walmart, category: "Grocery")]
         weHave = [item.init(name: "Milk", quantity: 2, units: unit.units, preferedStrore: stores.Target, category: "Grocery"),item.init(name: "Onions", quantity: 5, units: unit.lbs, preferedStrore: stores.Walmart, category: "Groccery")]
     }
+    func addItem(name : String, quantity : Int,units : String,PreferedStore: String,category : String) {
+        items.append(item.init(name: name, quantity: quantity, units: unit.lbs, preferedStrore: stores.Walmart, category: category))
+    }
     func categoriesList(){
         for i in 0..<items.count{
             if(categories.contains(items[i].category)){
