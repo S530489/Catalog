@@ -339,27 +339,44 @@
                                 <connections>
                                     <segue destination="OSe-lI-S66" kind="unwind" unwindAction="unwindFromSignupWithSegue:" id="vvQ-ot-33Y"/>
                                 </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caM-uu-ifX">
-                                <rect key="frame" x="20" y="79" width="334" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="kXS-eL-DXb"/>
-                    </view>
-                    <connections>
-                        <outlet property="emailTF" destination="qGS-lO-1dN" id="kZG-Bw-h3w"/>
-                        <outlet property="nameTF" destination="yW7-4o-xCD" id="qxn-cH-4xj"/>
-                        <outlet property="passwordTF" destination="GLB-Bh-C6L" id="SFp-P1-iY3"/>
-                        <outlet property="reenterPasswordTF" destination="Fjo-Bm-DPe" id="6AL-K9-Fnr"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3IO-lr-FsE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="OSe-lI-S66" userLabel="Exit" sceneMemberID="exit"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DeB-Kw-OpX" id="9eS-gZ-WIH"/>
+                            <outlet property="delegate" destination="DeB-Kw-OpX" id="QBL-NX-aIE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Category List " id="3S9-Ua-rOX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ejq-o1-bQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1849" y="689"/>
+        </scene>
+        <!--Items In Category Table View Controller-->
+        <scene sceneID="OQQ-4a-6CK">
+            <objects>
+                <tableViewController id="3kB-7Z-Jir" customClass="ItemsInCategoryTableViewController" customModule="Catalog" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wBY-SB-bgO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemsList" id="jGt-gA-Ve2">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jGt-gA-Ve2" id="v9g-TA-R15">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3kB-7Z-Jir" id="9XP-VU-pPw"/>
+                            <outlet property="delegate" destination="3kB-7Z-Jir" id="UcR-Fx-UsJ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3L3-EY-hnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1124" y="-745.56650246305423"/>
         </scene>
