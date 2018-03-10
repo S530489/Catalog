@@ -435,7 +435,6 @@
                         </variation>
                     </tabBar>
                     <connections>
-                        <segue destination="uwk-4p-GEb" kind="relationship" relationship="viewControllers" id="jVB-po-DMo"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="dyn-am-IJN" kind="relationship" relationship="viewControllers" id="6AY-hP-Fvr"/>
@@ -457,9 +456,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="DeB-Kw-OpX" kind="relationship" relationship="rootViewController" id="BgH-mj-z0v"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7As-uR-lEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
