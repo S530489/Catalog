@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  SignupViewController.swift
 //  Catalog
 //
 //  Created by chaithanya manas reddy on 09/03/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class SignupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +21,14 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var usernameTF: UITextField!
+    @IBOutlet weak var nameTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var reenterPasswordTF: UITextField!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
     
-    @IBAction func unwindFromSignup(segue : UIStoryboardSegue){
-        
-    }
 
 }
