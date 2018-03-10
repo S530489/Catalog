@@ -40,13 +40,12 @@ class WeHaveTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeHaveIdentifier", for: indexPath)
-        cell.textLabel?.text = AppDelegate.myModel.weHave[indexPath.row].name
 
         // Configure the cell...
-
+        cell.textLabel?.text = AppDelegate.myModel.weHave[indexPath.row].name
         return cell
     }
- 
+    
 
     /*
     // Override to support conditional editing of the table view.
