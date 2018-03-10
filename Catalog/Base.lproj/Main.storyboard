@@ -301,13 +301,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aUK-8d-27X">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryList" id="aUK-8d-27X">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aUK-8d-27X" id="hTH-vV-lpj">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="97n-eF-nzY" kind="show" id="QBl-Us-Hxc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -320,6 +323,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBh-df-No5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2346" y="785"/>
+        </scene>
+        <!--Items In Category Table View Controller-->
+        <scene sceneID="zhF-1o-clK">
+            <objects>
+                <tableViewController id="97n-eF-nzY" customClass="ItemsInCategoryTableViewController" customModule="Catalog" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CP4-8z-yi6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemsInCategory" id="a5t-3l-Q5A">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a5t-3l-Q5A" id="YZT-yu-c13">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="97n-eF-nzY" id="vks-Qd-SXp"/>
+                            <outlet property="delegate" destination="97n-eF-nzY" id="tca-F3-1PE"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FJn-dr-UDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3380" y="799"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="BiU-A8-Hsd">
@@ -401,11 +432,11 @@
             </objects>
             <point key="canvasLocation" x="-32" y="0.0"/>
         </scene>
-        <!--Item-->
+        <!--Category-->
         <scene sceneID="etV-Wk-ZaJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AnQ-ym-IQh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="wqG-ii-Kuj"/>
+                    <tabBarItem key="tabBarItem" title="Category" image="Category" selectedImage="Category" id="wqG-ii-Kuj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gZ4-M0-Qew">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -423,6 +454,7 @@
     </scenes>
     <resources>
         <image name="Add Item" width="33" height="33"/>
+        <image name="Category" width="33" height="33"/>
         <image name="List" width="33" height="33"/>
         <image name="list_catalog" width="33" height="33"/>
         <image name="profile" width="33" height="33"/>

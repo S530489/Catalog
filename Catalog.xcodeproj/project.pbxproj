@@ -19,6 +19,7 @@
 		198FDFAF205348C0006C875E /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FDFAE205348C0006C875E /* model.swift */; };
 		198FDFB120535DAE006C875E /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FDFB020535DAE006C875E /* SignupViewController.swift */; };
 		19F380612053733300D1CA2C /* CategoryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F380602053733300D1CA2C /* CategoryListTableViewController.swift */; };
+		3F224EF820537AA300559754 /* ItemsInCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F224EF720537AA300559754 /* ItemsInCategoryTableViewController.swift */; };
 		3FE4EE1920363C3C00856D99 /* WeHaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1820363C3C00856D99 /* WeHaveViewController.swift */; };
 		3FE4EE1B20363C5B00856D99 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1A20363C5B00856D99 /* MeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		198FDFAE205348C0006C875E /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		198FDFB020535DAE006C875E /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		19F380602053733300D1CA2C /* CategoryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewController.swift; sourceTree = "<group>"; };
+		3F224EF720537AA300559754 /* ItemsInCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsInCategoryTableViewController.swift; sourceTree = "<group>"; };
 		3FE4EE1820363C3C00856D99 /* WeHaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeHaveViewController.swift; sourceTree = "<group>"; };
 		3FE4EE1A20363C5B00856D99 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +120,7 @@
 				1955F8F320363532006C1C70 /* ListViewController.swift */,
 				1955F8F520363532006C1C70 /* Main.storyboard */,
 				19F380602053733300D1CA2C /* CategoryListTableViewController.swift */,
+				3F224EF720537AA300559754 /* ItemsInCategoryTableViewController.swift */,
 				3FE4EE1820363C3C00856D99 /* WeHaveViewController.swift */,
 				3FE4EE1A20363C5B00856D99 /* MeViewController.swift */,
 				1955F8F820363532006C1C70 /* Assets.xcassets */,
@@ -290,6 +293,7 @@
 				1955F8F220363532006C1C70 /* AddItemViewController.swift in Sources */,
 				3FE4EE1920363C3C00856D99 /* WeHaveViewController.swift in Sources */,
 				198FDFAF205348C0006C875E /* model.swift in Sources */,
+				3F224EF820537AA300559754 /* ItemsInCategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
