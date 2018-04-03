@@ -6,7 +6,20 @@
 //  Copyright © 2018 Chaithanya Manas Reddy Matta. All rights reserved.
 //
 
+
 import Foundation
+import Parse
+
+class Item:PFObject, PFSubclassing {
+    @NSManaged var name:String
+    @NSManaged var quantity:Int
+    @NSManaged var units:Int
+    @NSManaged var preferedStore:String
+    @NSManaged var category:String
+    static func parseClassName() -> String {
+        return "Item"
+    } }
+
 enum stores{
     case Walmart, Hyvee,BestBuy,Costco,JCPenny,Target
 }
