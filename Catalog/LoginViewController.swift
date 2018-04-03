@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
@@ -25,21 +26,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     
     
-
-    
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        var a:Bool = false
-//        
-//        if identifier == "login" {
-//        a = AppDelegate.login.login(name: usernameTF.text!, password: passwordTF.text!)
-//        }
-//        else {
-//            
-//        }
-//        return a
-//    }
     
     
+    @IBAction func login(sender: AnyObject) {
+       
+    }
     
     @IBAction func unwindFromSignup(segue : UIStoryboardSegue){
         
