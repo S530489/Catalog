@@ -116,8 +116,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
-                                    <action selector="AddItemBTN:" destination="9pv-A4-QxB" eventType="touchUpInside" id="qNc-1h-XLF"/>
-                                    <segue destination="wyS-F0-nsd" kind="show" id="kEH-7t-b3X"/>
+                                    <action selector="AddItemBTNWithSender:" destination="9pv-A4-QxB" eventType="touchUpInside" id="b9x-SJ-adH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -143,7 +142,7 @@
             <objects>
                 <tableViewController id="4TH-my-DAt" customClass="ListTableViewController" customModule="Catalog" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f3u-tx-gBj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -535,7 +534,4 @@
         <image name="list_catalog" width="33" height="33"/>
         <image name="profile" width="33" height="33"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="kEH-7t-b3X"/>
-    </inferredMetricsTieBreakers>
 </document>

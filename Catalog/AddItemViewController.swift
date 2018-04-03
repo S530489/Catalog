@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class AddItemViewController: UIViewController {
     @IBOutlet weak var itemNameTF: UITextField!
@@ -16,14 +17,53 @@ class AddItemViewController: UIViewController {
     @IBOutlet weak var categoryTF: UITextField!
     @IBOutlet weak var errorMsgLBL: UILabel!
     
-    @IBAction func AddItemBTN(_ sender: Any) {
+//    @IBAction func AddItemBTN(_ sender: Any) {
+//
+//        if((itemNameTF.text?.isEmpty)! || (itemQuantityTF.text?.isEmpty)! || (unitsTF.text?.isEmpty)! || (preferedStoreTF.text?.isEmpty)! || (categoryTF.text?.isEmpty)!){
+//            errorMsgLBL.isHidden = false
+//            errorMsgLBL.text = "Fields cannot be empty."
+//        }
+//        else{
+//            AppDelegate.myModel.addItem(name: itemNameTF.text!, quantity: Int(itemQuantityTF.text!)!, units: unitsTF.text!, PreferedStore: preferedStoreTF.text!, category: categoryTF.text!)
+//            self.performSegue(withIdentifier: "AddVCToListVC", sender: Any?.self)
+//        }
+//    }
+    
+    
+    @IBAction func AddItemBTN(sender: AnyObject) {
         if((itemNameTF.text?.isEmpty)! || (itemQuantityTF.text?.isEmpty)! || (unitsTF.text?.isEmpty)! || (preferedStoreTF.text?.isEmpty)! || (categoryTF.text?.isEmpty)!){
-            errorMsgLBL.text = "Fields cannot be empty."
+                                    errorMsgLBL.isHidden = false
+                                    errorMsgLBL.text = "Fields cannot be empty."
         }
-        else{
-            AppDelegate.myModel.addItem(name: itemNameTF.text!, quantity: Int(itemQuantityTF.text!)!, units: unitsTF.text!, PreferedStore: preferedStoreTF.text!, category: categoryTF.text!)
+        else
+        {
+        let item = PFObject(className: "Item")
+        item["name"] = itemNameTF.text
+        item["quantity"] = Int(itemQuantityTF.text!)
+        item["units"] = Int(unitsTF.text!)
+        item["prefferedStore"] = preferedStoreTF.text
+        item["category"] = categoryTF.text
+        
+
+        item.saveInBackground(block: { (success, error) -> Void in
+            if success {
+                self.displayOKAlert(title: "Success!", message:"Item saved.")
+            } else {
+                print(error as Any)
+            }
+        })
+            
         }
     }
+    
+    func displayOKAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message:
+            message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK",
+                                      style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         errorMsgLBL.isHidden = true
