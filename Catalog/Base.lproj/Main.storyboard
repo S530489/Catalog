@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UIy-9q-Vh0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UIy-9q-Vh0">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -358,7 +358,8 @@
                                     <color key="titleColor" red="0.96173750719999995" green="1" blue="0.92501100599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ykI-Pz-d9X" kind="unwind" unwindAction="unwindFromSignupWithSegue:" id="qdA-jt-OsY"/>
+                                    <action selector="registerWithSender:" destination="KyQ-ON-zyj" eventType="touchUpInside" id="o0m-qw-ogw"/>
+                                    <segue destination="ykI-Pz-d9X" kind="unwind" unwindAction="unwindFromSignupWithSegue:" id="QRw-eJ-KE4"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Signup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fy3-gC-KJw">
@@ -413,7 +414,7 @@
                                     <color key="titleColor" red="0.96173750719999995" green="1" blue="0.92501100599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" identifier="login" id="qnd-74-byM"/>
+                                    <action selector="loginWithSender:" destination="UIy-9q-Vh0" eventType="touchUpInside" id="sg2-lb-t3o"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAk-b5-Vdg">
@@ -435,6 +436,7 @@
                     <connections>
                         <outlet property="passwordTF" destination="9pX-iQ-OOO" id="3K8-dA-pFK"/>
                         <outlet property="usernameTF" destination="lAB-mD-OnD" id="7xs-7r-B8i"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="LoginVCtoTabVC" id="qOW-Av-GAp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZ7-Rw-VI8" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Parse
 class SignupViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -20,21 +20,47 @@ class SignupViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    func textField(_ textFieldToChange: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        return true
-//    }
-//
+
     
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var reenterPasswordTF: UITextField!
     
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//    }
+    func displayOKAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message:
+            message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK",
+                                      style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    @IBAction func register(sender: AnyObject) {
+        // Defining the user object
+        let user = PFUser()
+        user.username = nameTF.text!
+        user.password = passwordTF.text!
+        user.email = emailTF.text!
+        user.signUpInBackground(block: {(success, error) -> Void in
+            if let error = error as Error? {
+                let errorString = error.localizedDescription
+                // In case something went wrong, use errorString to get the error
+                self.displayOKAlert(title: "Something has gone wrong", message:"\(errorString)")
+            } else {
+                // Everything went okay
+                self.displayOKAlert(title: "Success!", message:"Registration was successful")
+                let emailVerified = user["emailVerified"]
+                if emailVerified != nil && (emailVerified as! Bool) == true {
+                    // Everything is fine
+                }
+                else {
+                    // The email has not been verified, so logout the user
+                    PFUser.logOut()
+                }
+            } })
+    }
+
     
 
 }

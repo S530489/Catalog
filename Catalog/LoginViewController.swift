@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
@@ -25,21 +26,31 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     
     
-
+    func displayOKAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message:
+            message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK",style: .default, handler: {(action) in
+            alert.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "LoginVCtoTabVC", sender: Any?.self)
+        }))
+        self.present(alert, animated: true)
+    }
     
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        var a:Bool = false
-//        
-//        if identifier == "login" {
-//        a = AppDelegate.login.login(name: usernameTF.text!, password: passwordTF.text!)
-//        }
-//        else {
-//            
-//        }
-//        return a
-//    }
-    
-    
+    @IBAction func login(sender: AnyObject) {
+        PFUser.logInWithUsername(inBackground: usernameTF.text!, password: passwordTF.text!,
+                                 block:{(user, error) -> Void in
+                                    if error != nil{
+                                        print(error!)
+                                    }
+                                    else {
+                                        // Everything went alright here
+                                        
+                                        self.displayOKAlert(title: "Success!", message:"Login successful")
+                                        
+                                        
+                                    } })
+    }
     
     @IBAction func unwindFromSignup(segue : UIStoryboardSegue){
         
