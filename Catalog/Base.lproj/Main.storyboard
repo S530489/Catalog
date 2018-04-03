@@ -232,6 +232,9 @@
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="zcW-c7-DDx" kind="unwind" unwindAction="unwindFromSignupWithSegue:" id="JWa-cD-qDE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGZ-jF-cWW">
                                 <rect key="frame" x="16" y="444" width="288" height="30"/>
@@ -254,6 +257,7 @@
                     <tabBarItem key="tabBarItem" title="Me!" image="profile" id="5Ts-Pe-4A5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtK-th-xX5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zcW-c7-DDx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="402.39999999999998" y="836.45320197044339"/>
         </scene>
