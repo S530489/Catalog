@@ -30,6 +30,7 @@
 		1AEFC3D920539993008C700D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEFC3D820539993008C700D /* ListTableViewController.swift */; };
 		1C7B1DBA1F71B0A3A344DCCB /* Pods_Catalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D24580B221BACE677CA041 /* Pods_Catalog.framework */; };
 		3F224EF820537AA300559754 /* ItemsInCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F224EF720537AA300559754 /* ItemsInCategoryTableViewController.swift */; };
+		3F658FB32081A25A008883C7 /* PasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F658FB22081A25A008883C7 /* PasswordRecoveryViewController.swift */; };
 		3FE4EE1B20363C5B00856D99 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4EE1A20363C5B00856D99 /* MeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		1FEF32BF79F88488B35AE2AC /* Pods-CatalogUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatalogUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CatalogUITests/Pods-CatalogUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2643AF7DDCA103797D1B2E4A /* Pods_CatalogTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CatalogTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F224EF720537AA300559754 /* ItemsInCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsInCategoryTableViewController.swift; sourceTree = "<group>"; };
+		3F658FB22081A25A008883C7 /* PasswordRecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryViewController.swift; sourceTree = "<group>"; };
 		3FE4EE1A20363C5B00856D99 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		49A204CE75A62BC4FED2CB63 /* Pods_CatalogUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CatalogUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D017B72D37E5CCD629DD205 /* Pods-CatalogUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatalogUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CatalogUITests/Pods-CatalogUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				198FDFB020535DAE006C875E /* SignupViewController.swift */,
 				1955F8F120363532006C1C70 /* AddItemViewController.swift */,
 				1955F8F520363532006C1C70 /* Main.storyboard */,
+				3F658FB22081A25A008883C7 /* PasswordRecoveryViewController.swift */,
 				19F380602053733300D1CA2C /* CategoryListTableViewController.swift */,
 				3F224EF720537AA300559754 /* ItemsInCategoryTableViewController.swift */,
 				3FE4EE1A20363C5B00856D99 /* MeViewController.swift */,
@@ -526,6 +529,7 @@
 				3FE4EE1B20363C5B00856D99 /* MeViewController.swift in Sources */,
 				19F380612053733300D1CA2C /* CategoryListTableViewController.swift in Sources */,
 				1955F8F020363532006C1C70 /* AppDelegate.swift in Sources */,
+				3F658FB32081A25A008883C7 /* PasswordRecoveryViewController.swift in Sources */,
 				1955F8F220363532006C1C70 /* AddItemViewController.swift in Sources */,
 				198FDFAF205348C0006C875E /* model.swift in Sources */,
 				3F224EF820537AA300559754 /* ItemsInCategoryTableViewController.swift in Sources */,

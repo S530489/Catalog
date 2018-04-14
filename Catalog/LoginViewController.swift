@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        MsgLBL.isHidden = true
 
         // Do any additional setup after loading the view.
     }
@@ -22,9 +23,30 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        LogoImageView.image  = #imageLiteral(resourceName: "loginLOGO")
+        usernameTF.leftViewMode = .always
+        passwordTF.leftViewMode = .always
+        let imageTextView = UIImageView()
+        imageTextView.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
+        imageTextView.image = #imageLiteral(resourceName: "username")
+        usernameTF.leftView = imageTextView
+        
+        let imageTextViewPassword = UIImageView()
+        imageTextViewPassword.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
+        imageTextViewPassword.image = #imageLiteral(resourceName: "password")
+        passwordTF.leftView = imageTextViewPassword
+    }
+    @IBAction func SignUpACT(_ sender: Any) {
+        self.performSegue(withIdentifier: "signup", sender: Any?.self)
+
+    }
+    
+    @IBOutlet weak var LogoImageView: UIImageView!
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
+    @IBOutlet weak var MsgLBL: UILabel!
     
     func displayOKAlert(title: String, message: String) {
         
@@ -42,6 +64,7 @@ class LoginViewController: UIViewController {
                                  block:{(user, error) -> Void in
                                     if error != nil{
                                         print(error!)
+                                        self.MsgLBL.isHidden = false
                                     }
                                     else {
                                         // Everything went alright here
