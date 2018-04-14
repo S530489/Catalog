@@ -8,13 +8,51 @@
 
 import UIKit
 import Parse
+
 class SignupViewController: UIViewController {
 
     @IBOutlet weak var LogoImage: UIImageView!
+    
+    @IBOutlet weak var nameTF: UITextField!
+    
+    @IBOutlet weak var emailTF: UITextField!
+    
+    @IBOutlet weak var passwordTF: UITextField!
+    
+    @IBOutlet weak var reenterPasswordTF: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        LogoImage.image = #imageLiteral(resourceName: "loginLOGO")
+        nameTF.leftViewMode = .always
+        emailTF.leftViewMode = .always
+        passwordTF.leftViewMode = .always
+        reenterPasswordTF.leftViewMode = .always
+
+        let imageTextView = UIImageView()
+        imageTextView.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
+        imageTextView.image = #imageLiteral(resourceName: "username")
+        nameTF.leftView = imageTextView
+
+
+        let imageTextEmail = UIImageView()
+        imageTextEmail.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
+        imageTextEmail.image = #imageLiteral(resourceName: "email")
+        emailTF
+            .leftView = imageTextEmail
+
+        let imageTextViewPassword = UIImageView()
+        imageTextViewPassword.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
+        imageTextViewPassword.image = #imageLiteral(resourceName: "password")
+        passwordTF.leftView = imageTextViewPassword
+        
+        let imageTextViewRePassword = UIImageView()
+        imageTextViewRePassword.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
+        imageTextViewRePassword.image = #imageLiteral(resourceName: "password")
+        reenterPasswordTF.leftView = imageTextViewRePassword
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,49 +61,27 @@ class SignupViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        LogoImage.image = #imageLiteral(resourceName: "loginLOGO")
-        nameTF.leftViewMode = .always
-        emailTF.leftViewMode = .always
-        passwordTF.leftViewMode = .always
-        reenterPasswordTF.leftViewMode = .always
-        
-        let imageTextView = UIImageView()
-        imageTextView.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
-        imageTextView.image = #imageLiteral(resourceName: "username")
-        nameTF.leftView = imageTextView
-        
-        
-        let imageTextEmail = UIImageView()
-        imageTextEmail.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
-        imageTextEmail.image = #imageLiteral(resourceName: "email")
-        nameTF.leftView = imageTextEmail
-        
-        let imageTextViewPassword = UIImageView()
-        imageTextViewPassword.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
-        imageTextViewPassword.image = #imageLiteral(resourceName: "password")
-        passwordTF.leftView = imageTextViewPassword
-        reenterPasswordTF.leftView = imageTextViewPassword
+
     }
     
     @IBAction func cancelACT(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+       self.dismiss(animated: true, completion: nil)
     }
-    @IBOutlet weak var nameTF: UITextField!
-    @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var passwordTF: UITextField!
-    @IBOutlet weak var reenterPasswordTF: UITextField!
+    
     
     func displayOKAlert(title: String, message: String) {
-        
         let alert = UIAlertController(title: title, message:
             message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK",
-                                      style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK",style: .default, handler: {(action) in
+            alert.dismiss(animated: true, completion: nil)
+            
+            
+        }))
         self.present(alert, animated: true)
     }
     
     @IBAction func register(sender: AnyObject) {
-        // Defining the user object
+         //Defining the user object
         let user = PFUser()
         user.username = nameTF.text!
         user.password = passwordTF.text!

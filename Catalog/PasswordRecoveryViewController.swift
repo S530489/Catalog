@@ -37,7 +37,7 @@ class PasswordRecoveryViewController: UIViewController {
             message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK",style: .default, handler: {(action) in
             alert.dismiss(animated: true, completion: nil)
-            self.performSegue(withIdentifier: "LoginVCtoTabVC", sender: Any?.self)
+            
         }))
         self.present(alert, animated: true)
     }
