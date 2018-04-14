@@ -10,6 +10,7 @@ import UIKit
 import Parse
 class SignupViewController: UIViewController {
 
+    @IBOutlet weak var LogoImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,8 +21,35 @@ class SignupViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
+    override func viewWillAppear(_ animated: Bool) {
+        LogoImage.image = #imageLiteral(resourceName: "loginLOGO")
+        nameTF.leftViewMode = .always
+        emailTF.leftViewMode = .always
+        passwordTF.leftViewMode = .always
+        reenterPasswordTF.leftViewMode = .always
+        
+        let imageTextView = UIImageView()
+        imageTextView.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
+        imageTextView.image = #imageLiteral(resourceName: "username")
+        nameTF.leftView = imageTextView
+        
+        
+        let imageTextEmail = UIImageView()
+        imageTextEmail.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
+        imageTextEmail.image = #imageLiteral(resourceName: "email")
+        nameTF.leftView = imageTextEmail
+        
+        let imageTextViewPassword = UIImageView()
+        imageTextViewPassword.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
+        imageTextViewPassword.image = #imageLiteral(resourceName: "password")
+        passwordTF.leftView = imageTextViewPassword
+        reenterPasswordTF.leftView = imageTextViewPassword
+    }
+    
+    @IBAction func cancelACT(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
