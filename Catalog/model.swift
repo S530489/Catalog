@@ -29,6 +29,12 @@ class Item1:PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return "Wehave"
     } }
+
+class Model2{
+    var Category = ["Grocery", "Health", "Electronics", "Fashion", "Wines and Spirits", "Stationary"]
+    var Unit = ["lbs", "Gallons", "Dozen", "Units"]
+    var PreferedStores = ["Walmart", "Hyvee", "BestBuy", "Costco", "JCPenny", "Target"]
+}
 enum stores{
     case Walmart, Hyvee,BestBuy,Costco,JCPenny,Target
 }
