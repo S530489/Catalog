@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
                Parse.initialize(with: configuration)
         Item.registerSubclass()
-        //Wehave.registerSubclass()
+        Item1.registerSubclass()
         
     
         return true

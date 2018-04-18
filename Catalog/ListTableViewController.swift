@@ -94,6 +94,7 @@ class ListTableViewController: UITableViewController {
             completion(true)
         }
         //action.image = #imageLiteral(resourceName: "Trash")
+        action.image = #imageLiteral(resourceName: "del")
         action.backgroundColor = .red
         return action
     }
@@ -122,19 +123,11 @@ class ListTableViewController: UITableViewController {
                     self.displayOKAlert(title: "Success!",
                                         message:"\(self.items[indexpath.row].name) is Moved to Wehave List")
             })
-            
-            
-            
-            
-            
-            
-            
-            
-            
             completion(true)
         }
         
         //action.image = #imageLiteral(resourceName: "bought")
+        action.image = #imageLiteral(resourceName: "bought")
         action.backgroundColor = .green
         return action
         
