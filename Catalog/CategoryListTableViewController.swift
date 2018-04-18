@@ -7,8 +7,35 @@
 //
 
 import UIKit
-
+import Parse
 class CategoryListTableViewController: UITableViewController {
+    
+    var items:[Item] = [];
+    func fetchItems() {
+        let query = PFQuery(className:"Item")     // Fetches all the Movie objects
+        query.findObjectsInBackground {   // what happened to the ( ) ?
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil {
+                // The find succeeded.
+                //                self.displayOKAlert(title: "Success!",
+                //                                    message:"Retrieved \(objects!.count) objects.")
+                self.items = objects as! [Item]
+                // Do something with the found objects
+                // Like display them in a table view.
+                //self.moviesTV.reloadData()
+                self.tableView.reloadData()
+            } else {
+                // Log details of the failure
+                self.displayOKAlert(title: "Oops", message: "\(error!)")
+            } }
+    }
+    func displayOKAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message:
+            message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK",
+                                      style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +51,12 @@ class CategoryListTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchItems()
+        //print(self.items)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

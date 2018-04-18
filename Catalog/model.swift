@@ -20,6 +20,16 @@ class Item:PFObject, PFSubclassing {
         return "Item"
     } }
 
+class Item1:PFObject, PFSubclassing {
+    @NSManaged var name:String
+    @NSManaged var quantity:Int
+    @NSManaged var units:Int
+    @NSManaged var preferedStore:String
+    @NSManaged var category:String
+    static func parseClassName() -> String {
+        return "Wehave"
+    } }
+
 class Model2{
     var Category = ["Grocery", "Health", "Electronics", "Fashion", "Wines and Spirits", "Stationary"]
     var Unit = ["lbs", "Gallons", "Dozen", "Units"]
