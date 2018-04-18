@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     static var myModel = model()
     static var login = Login()
-
+    static var pickerModel = Model2()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
                Parse.initialize(with: configuration)
         Item.registerSubclass()
-        Item1.registerSubclass()
+
         
     
         return true

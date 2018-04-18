@@ -11,7 +11,7 @@ import Parse
 
 class ListTableViewController: UITableViewController {
     
-    var items:[Item] = [];
+    var items:[Item] = []
     func fetchItems() {
         let query = PFQuery(className:"Item")     // Fetches all the Movie objects
         query.findObjectsInBackground {   // what happened to the ( ) ?
