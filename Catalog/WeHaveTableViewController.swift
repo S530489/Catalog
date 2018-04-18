@@ -7,9 +7,42 @@
 //
 
 import UIKit
-
+import  Parse
 class WeHaveTableViewController: UITableViewController {
-
+    
+    var items:[Item1] = [];
+    
+    func fetchItems() {
+        let query = PFQuery(className:"Wehave")     // Fetches all the Movie objects
+        query.findObjectsInBackground {   // what happened to the ( ) ?
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil {
+                // The find succeeded.
+                //                self.displayOKAlert(title: "Success!",
+                //                                    message:"Retrieved \(objects!.count) objects.")
+                self.items = objects as! [Item1]
+                // Do something with the found objects
+                // Like display them in a table view.
+                //self.moviesTV.reloadData()
+                self.tableView.reloadData()
+            } else {
+                // Log details of the failure
+                self.displayOKAlert(title: "Oops", message: "\(error!)")
+            } }
+    }
+    
+    func displayOKAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message:
+            message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK",
+                                      style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchItems()
+        //print(self.items)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +57,63 @@ class WeHaveTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let tobuy = ToBuy(at: indexPath)
+        let delete = DeleteAction(at: indexPath)
+        
+        return UISwipeActionsConfiguration(actions: [tobuy,delete])
+    }
+    
+    func DeleteAction(at indexpath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "Delete"){(action, view, completion) in
+            self.items[indexpath.row].deleteInBackground(block:
+                {(success,error) in
+                    self.displayOKAlert(title: "Success!",
+                                        message:"\(self.items[indexpath.row].name) is deleted ")
+            })
+            completion(true)
+        }
+        //action.image = #imageLiteral(resourceName: "Trash")
+        action.image = #imageLiteral(resourceName: "del")
+        action.backgroundColor = .red
+        return action
+    }
+    
+    func ToBuy(at indexpath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "ToBuy"){(action, view, completion) in
+            
+            let item = PFObject(className: "Item")
+            item["name"] = self.items[indexpath.row].name
+            item["quantity"] = self.items[indexpath.row].quantity
+            item["units"] = self.items[indexpath.row].units
+            item["prefferedStore"] = self.items[indexpath.row].preferedStore
+            item["category"] = self.items[indexpath.row].category
+            
+            
+            item.saveInBackground(block: { (success, error) -> Void in
+                if success {
+                    print("\(self.items[indexpath.row].name) is successfully added to List class")
+                } else {
+                    print(error as Any)
+                }
+            })
+            
+            self.items[indexpath.row].deleteInBackground(block:
+                {(success,error) in
+                    self.displayOKAlert(title: "Success!",
+                                        message:"\(self.items[indexpath.row].name) is Moved to Required List")
+            })
+            completion(true)
+        }
+        
+        //action.image = #imageLiteral(resourceName: "bought")
+        action.backgroundColor = .gray
+        action.image = #imageLiteral(resourceName: "tobuy")
+        return action
+        
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -34,17 +123,25 @@ class WeHaveTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return AppDelegate.myModel.weHave.count
+        return items.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeHaveIdentifier", for: indexPath)
-
+        
         // Configure the cell...
-        cell.textLabel?.text = AppDelegate.myModel.weHave[indexPath.row].name
+        cell.textLabel?.text = items[indexPath.row].name
         return cell
     }
+    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "WeHaveIdentifier", for: indexPath)
+//
+//        // Configure the cell...
+//        cell.textLabel?.text = items[indexPath.row].name
+//        return cell
+//    }
     
 
     /*

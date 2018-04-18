@@ -20,6 +20,15 @@ class Item:PFObject, PFSubclassing {
         return "Item"
     } }
 
+class Item1:PFObject, PFSubclassing {
+    @NSManaged var name:String
+    @NSManaged var quantity:Int
+    @NSManaged var units:Int
+    @NSManaged var preferedStore:String
+    @NSManaged var category:String
+    static func parseClassName() -> String {
+        return "Wehave"
+    } }
 enum stores{
     case Walmart, Hyvee,BestBuy,Costco,JCPenny,Target
 }
