@@ -20,36 +20,25 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return AppDelegate.pickerModel.Category.count
     }
-    
+    var dummy:Int = 0
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        dummy = row
+    }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return AppDelegate.pickerModel.Category[row]
     }
-    
     
     @IBOutlet weak var itemNameTF: UITextField!
     @IBOutlet weak var itemQuantityTF: UITextField!
     @IBOutlet weak var unitsTF: UITextField!
     @IBOutlet weak var preferedStoreTF: UITextField!
-    @IBOutlet weak var categoryTF: UITextField!
+//    @IBOutlet weak var categoryTF: UITextField!
     @IBOutlet weak var errorMsgLBL: UILabel!
     
-//    @IBAction func AddItemBTN(_ sender: Any) {
-//
-//        if((itemNameTF.text?.isEmpty)! || (itemQuantityTF.text?.isEmpty)! || (unitsTF.text?.isEmpty)! || (preferedStoreTF.text?.isEmpty)! || (categoryTF.text?.isEmpty)!){
-//            errorMsgLBL.isHidden = false
-//            errorMsgLBL.text = "Fields cannot be empty."
-//        }
-//        else{
-//            AppDelegate.myModel.addItem(name: itemNameTF.text!, quantity: Int(itemQuantityTF.text!)!, units: unitsTF.text!, PreferedStore: preferedStoreTF.text!, category: categoryTF.text!)
-//            self.performSegue(withIdentifier: "AddVCToListVC", sender: Any?.self)
-//        }
-//    }
-    
-
-    
-    
     @IBAction func AddItemBTN(sender: AnyObject) {
-        if((itemNameTF.text?.isEmpty)! || (itemQuantityTF.text?.isEmpty)! || (unitsTF.text?.isEmpty)! || (preferedStoreTF.text?.isEmpty)! || (categoryTF.text?.isEmpty)!){
+        if((itemNameTF.text?.isEmpty)! || (itemQuantityTF.text?.isEmpty)! || (unitsTF.text?.isEmpty)! || (preferedStoreTF.text?.isEmpty)!)
+//            || (categoryTF.text?.isEmpty)!
+        {
                                     errorMsgLBL.isHidden = false
                                     errorMsgLBL.text = "Fields cannot be empty."
         }
@@ -60,8 +49,10 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         item["quantity"] = Int(itemQuantityTF.text!)
         item["units"] = Int(unitsTF.text!)
         item["prefferedStore"] = preferedStoreTF.text
-        item["category"] = categoryTF.text
-        
+//        item["category"] = categoryTF.text
+            
+        item["category"] = AppDelegate.pickerModel.Category[dummy]
+            
 
         item.saveInBackground(block: { (success, error) -> Void in
             if success {
