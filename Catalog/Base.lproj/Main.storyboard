@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UIy-9q-Vh0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UIy-9q-Vh0">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Copperplate.ttc">
-            <string>Copperplate</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Add Item-->
         <scene sceneID="hNz-n2-bh7">
@@ -124,12 +119,21 @@
                                     <action selector="AddItemBTNWithSender:" destination="9pv-A4-QxB" eventType="touchUpInside" id="b9x-SJ-adH"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JaN-5S-CbN">
+                                <rect key="frame" x="203" y="507" width="161" height="65"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="Jke-IY-hJI"/>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="PPB-KL-Qji"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.57596139820000003" green="0.948806704" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Item" image="Add Item" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="categoryPicker" destination="JaN-5S-CbN" id="ege-Ew-IK1"/>
                         <outlet property="categoryTF" destination="3YJ-sc-yLv" id="XpD-Mg-dbN"/>
                         <outlet property="errorMsgLBL" destination="21h-e4-Snr" id="0r7-Ce-Gsk"/>
                         <outlet property="itemNameTF" destination="tbh-Ta-pXX" id="zCz-DV-Rjt"/>

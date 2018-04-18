@@ -9,7 +9,23 @@
 import UIKit
 import Parse
 
-class AddItemViewController: UIViewController {
+class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    @IBOutlet weak var categoryPicker: UIPickerView!
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return AppDelegate.pickerModel.Category.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return AppDelegate.pickerModel.Category[row]
+    }
+    
+    
     @IBOutlet weak var itemNameTF: UITextField!
     @IBOutlet weak var itemQuantityTF: UITextField!
     @IBOutlet weak var unitsTF: UITextField!
@@ -28,6 +44,8 @@ class AddItemViewController: UIViewController {
 //            self.performSegue(withIdentifier: "AddVCToListVC", sender: Any?.self)
 //        }
 //    }
+    
+
     
     
     @IBAction func AddItemBTN(sender: AnyObject) {
@@ -74,6 +92,10 @@ class AddItemViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.reloadInputViews()
     }
 
 
