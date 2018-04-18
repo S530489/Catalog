@@ -77,7 +77,70 @@ class ListTableViewController: UITableViewController {
         return cell
     }
  
-
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let bought = boughtAction(at: indexPath)
+        let delete = DeleteAction(at: indexPath)
+        
+        return UISwipeActionsConfiguration(actions: [bought,delete])
+    }
+    
+    func DeleteAction(at indexpath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "Delete"){(action, view, completion) in
+            self.items[indexpath.row].deleteInBackground(block:
+                {(success,error) in
+                    self.displayOKAlert(title: "Success!",
+                                        message:"\(self.items[indexpath.row].name) is deleted ")
+            })
+            completion(true)
+        }
+        //action.image = #imageLiteral(resourceName: "Trash")
+        action.backgroundColor = .red
+        return action
+    }
+    
+    func boughtAction(at indexpath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "bought"){(action, view, completion) in
+            
+            let item = PFObject(className: "Wehave")
+            item["name"] = self.items[indexpath.row].name
+            item["quantity"] = self.items[indexpath.row].quantity
+            item["units"] = self.items[indexpath.row].units
+            item["prefferedStore"] = self.items[indexpath.row].preferedStore
+            item["category"] = self.items[indexpath.row].category
+            
+            
+            item.saveInBackground(block: { (success, error) -> Void in
+                if success {
+                    print("\(self.items[indexpath.row].name) is successfully added to we have class")
+                } else {
+                    print(error as Any)
+                }
+            })
+            
+            self.items[indexpath.row].deleteInBackground(block:
+                {(success,error) in
+                    self.displayOKAlert(title: "Success!",
+                                        message:"\(self.items[indexpath.row].name) is Moved to Wehave List")
+            })
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            completion(true)
+        }
+        
+        //action.image = #imageLiteral(resourceName: "bought")
+        action.backgroundColor = .green
+        return action
+        
+    }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
