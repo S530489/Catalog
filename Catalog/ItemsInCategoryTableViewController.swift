@@ -9,7 +9,7 @@
 import UIKit
 
 class ItemsInCategoryTableViewController: UITableViewController {
-    var categorySelected = " "
+    var items:[Item] = [];
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,14 +36,14 @@ class ItemsInCategoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return AppDelegate.myModel.findItemsInCategory(category: categorySelected).count
+        return items.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemsInCategory", for: indexPath)
         
-        cell.textLabel?.text = AppDelegate.myModel.findItemsInCategory(category: categorySelected)[indexPath.row].name
+        cell.textLabel?.text = items[indexPath.row].name
         // Configure the cell...
 
         return cell

@@ -11,6 +11,8 @@ import Parse
 class CategoryListTableViewController: UITableViewController {
     
     var items:[Item] = [];
+    var ItemsInCat:[Item] = [];
+    
     func fetchItems() {
         let query = PFQuery(className:"Item")     // Fetches all the Movie objects
         query.findObjectsInBackground {   // what happened to the ( ) ?
@@ -66,7 +68,7 @@ class CategoryListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return AppDelegate.myModel.categories.count
+        return AppDelegate.pickerModel.Category.count
     }
 
     
@@ -74,11 +76,28 @@ class CategoryListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryList", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = AppDelegate.myModel.categories[indexPath.row]
+        cell.textLabel?.text = AppDelegate.pickerModel.Category[indexPath.row]
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cat = AppDelegate.pickerModel.Category[indexPath.row]
+        for i in items{
+            if(i.category == cat){
+                self.ItemsInCat.append(i)
+            }
+        }
+        if ItemsInCat.count > 0{
+            performSegue(withIdentifier: "CategoryToItem", sender: Any?.self)
+        }
+        else {
+            // Everything went alright here
+            self.displayOKAlert(title: "Nothing", message:"No Items Found in the Category")
+            
+            
+        }
+        
         
     }
     
@@ -93,8 +112,10 @@ class CategoryListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let Destination = segue.destination as! ItemsInCategoryTableViewController
         
-        let selectedIndex = self.tableView.indexPathForSelectedRow?.row
-        Destination.categorySelected = AppDelegate.myModel.categories[selectedIndex!]
+//        let selectedIndex = self.tableView.indexPathForSelectedRow?.row
+//        Destination.categorySelected = AppDelegate.myModel.categories[selectedIndex!]
+        
+        Destination.items = ItemsInCat
     }
  
 
