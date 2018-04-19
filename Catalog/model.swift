@@ -13,7 +13,7 @@ import Parse
 class Item:PFObject, PFSubclassing {
     @NSManaged var name:String
     @NSManaged var quantity:Int
-    @NSManaged var units:Int
+    @NSManaged var units:String
     @NSManaged var preferedStore:String
     @NSManaged var category:String
     static func parseClassName() -> String {
@@ -23,7 +23,7 @@ class Item:PFObject, PFSubclassing {
 class Item1:PFObject, PFSubclassing {
     @NSManaged var name:String
     @NSManaged var quantity:Int
-    @NSManaged var units:Int
+    @NSManaged var units:String
     @NSManaged var preferedStore:String
     @NSManaged var category:String
     static func parseClassName() -> String {
