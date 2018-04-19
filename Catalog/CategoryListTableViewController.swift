@@ -81,7 +81,7 @@ class CategoryListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        ItemsInCat = []
         let cat = AppDelegate.pickerModel.Category[indexPath.row]
         for i in items{
             if(i.category == cat){
@@ -93,7 +93,7 @@ class CategoryListTableViewController: UITableViewController {
         }
         else {
             // Everything went alright here
-            self.displayOKAlert(title: "Nothing", message:"No Items Found in the Category")
+            self.displayOKAlert(title: AppDelegate.pickerModel.Category[indexPath.row], message:"No Items Found in the Category")
             
             
         }
