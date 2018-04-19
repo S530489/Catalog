@@ -27,6 +27,7 @@ class ListTableViewController: UITableViewController {
                 // Like display them in a table view.
                 //self.moviesTV.reloadData()
                 self.tableView.reloadData()
+                print(self.items)
             } else {
                 // Log details of the failure
                 self.displayOKAlert(title: "Oops", message: "\(error!)")
@@ -74,12 +75,17 @@ class ListTableViewController: UITableViewController {
     func getStoreItems(){
             catItems = []
             cat = []
-            for c in AppDelegate.pickerModel.Category{
+         print(items.count)
+            for c in AppDelegate.pickerModel.PreferedStores{
                 var temp : [Item] = []
+               
                 for i in items{
-                    if c == i.category{
+                    print(" c is \(c)")
+                    print("i is \(i.preferedStore)")
+                    if c == i.preferedStore{
                         temp.append(i)
                     }
+                    print(temp)
             }
                 if temp.count > 0{
                     cat.append(c)
@@ -122,10 +128,10 @@ class ListTableViewController: UITableViewController {
     
     func DeleteAction(at indexpath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete"){(action, view, completion) in
-            self.items[indexpath.row].deleteInBackground(block:
+            self.catItems[indexpath.section][indexpath.row].deleteInBackground(block:
                 {(success,error) in
                     self.displayOKAlert(title: "Success!",
-                                        message:"\(self.items[indexpath.row].name) is deleted ")
+                                        message:"\(self.catItems[indexpath.section][indexpath.row].name) is deleted ")
             })
             completion(true)
         }
@@ -139,25 +145,25 @@ class ListTableViewController: UITableViewController {
         let action = UIContextualAction(style: .destructive, title: "bought"){(action, view, completion) in
             
             let item = PFObject(className: "Wehave")
-            item["name"] = self.items[indexpath.row].name
-            item["quantity"] = self.items[indexpath.row].quantity
-            item["units"] = self.items[indexpath.row].units
-            item["prefferedStore"] = self.items[indexpath.row].preferedStore
-            item["category"] = self.items[indexpath.row].category
+            item["name"] = self.catItems[indexpath.section][indexpath.row].name
+            item["quantity"] = self.catItems[indexpath.section][indexpath.row].quantity
+            item["units"] = self.catItems[indexpath.section][indexpath.row].units
+            item["prefferedStore"] = self.catItems[indexpath.section][indexpath.row].preferedStore
+            item["category"] = self.catItems[indexpath.section][indexpath.row].category
             
             
             item.saveInBackground(block: { (success, error) -> Void in
                 if success {
-                    print("\(self.items[indexpath.row].name) is successfully added to we have class")
+                    print("\(self.catItems[indexpath.section][indexpath.row].name) is successfully added to we have class")
                 } else {
                     print(error as Any)
                 }
             })
             
-            self.items[indexpath.row].deleteInBackground(block:
+            self.catItems[indexpath.section][indexpath.row].deleteInBackground(block:
                 {(success,error) in
                     self.displayOKAlert(title: "Success!",
-                                        message:"\(self.items[indexpath.row].name) is Moved to Wehave List")
+                                        message:"\(self.catItems[indexpath.section][indexpath.row].name) is Moved to Wehave List")
             })
             completion(true)
         }
