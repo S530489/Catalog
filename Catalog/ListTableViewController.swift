@@ -27,7 +27,7 @@ class ListTableViewController: UITableViewController {
                 // Like display them in a table view.
                 //self.moviesTV.reloadData()
                 self.tableView.reloadData()
-                print(self.items)
+               
             } else {
                 // Log details of the failure
                 self.displayOKAlert(title: "Oops", message: "\(error!)")
@@ -76,16 +76,15 @@ class ListTableViewController: UITableViewController {
             catItems = []
             cat = []
          print(items.count)
-            for c in AppDelegate.pickerModel.PreferedStores{
+            for c in AppDelegate.pickerModel.Category{
                 var temp : [Item] = []
                
                 for i in items{
-                    print(" c is \(c)")
-                    print("i is \(i.preferedStore)")
-                    if c == i.preferedStore{
+                   
+                    if c == i.category{
                         temp.append(i)
                     }
-                    print(temp)
+                   
             }
                 if temp.count > 0{
                     cat.append(c)
