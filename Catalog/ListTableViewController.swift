@@ -49,7 +49,10 @@ class ListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+//    override func viewDidAppear(_ animated: Bool) {
+//        fetchItems()
+//        getStoreItems()
+//    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -59,6 +62,7 @@ class ListTableViewController: UITableViewController {
         getStoreItems()
         
     }
+   
 
     // MARK: - Table view data source
 
