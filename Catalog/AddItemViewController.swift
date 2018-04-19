@@ -34,7 +34,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var dummy2:Int = 0
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == categoryPicker{
-        dummy = row
+            dummy = row
         } else if pickerView == preferedStorePicker{
             dummy1 = row
         } else {
@@ -77,7 +77,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 //        item["category"] = categoryTF.text
             item["units"] = AppDelegate.pickerModel.Unit[dummy2]
             item["prefferedStore"] = AppDelegate.pickerModel.PreferedStores[dummy1]
-        item["category"] = AppDelegate.pickerModel.Category[dummy]
+            item["category"] = AppDelegate.pickerModel.Category[dummy]
             
 
         item.saveInBackground(block: { (success, error) -> Void in
