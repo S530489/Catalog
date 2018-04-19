@@ -58,7 +58,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let item = PFObject(className: "Item")
         item["name"] = itemNameTF.text
         item["quantity"] = Int(itemQuantityTF.text!)
-        item["units"] = Int(unitsTF.text!)
+        item["units"] = unitsTF.text!
         item["prefferedStore"] = preferedStoreTF.text
         item["category"] = categoryTF.text
         

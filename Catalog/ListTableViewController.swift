@@ -12,6 +12,8 @@ import Parse
 class ListTableViewController: UITableViewController {
     
     var items:[Item] = []
+    var catItems : [[Item]] = []
+    var cat : [String] = []
     func fetchItems() {
         let query = PFQuery(className:"Item")     // Fetches all the Movie objects
         query.findObjectsInBackground {   // what happened to the ( ) ?
@@ -40,7 +42,7 @@ class ListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -54,29 +56,59 @@ class ListTableViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         fetchItems()
+        getStoreItems()
+        
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return cat.count
     }
-
+    
+    func getStoreItems(){
+            catItems = []
+            cat = []
+            for c in AppDelegate.pickerModel.Category{
+                var temp : [Item] = []
+                for i in items{
+                    if c == i.category{
+                        temp.append(i)
+                    }
+            }
+                if temp.count > 0{
+                    cat.append(c)
+                    catItems.append(temp)
+                }
+                
+        }
+        
+      print(cat)
+        print(catItems)
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return items.count
+        return catItems[section].count
     }
 
-    
+
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListOfItems", for: indexPath)
-
+        let myItem  = cell.viewWithTag(100) as! UILabel
+        let UnitsandQty = cell.viewWithTag(101) as! UILabel
+        
+        myItem.text = catItems[indexPath.section][indexPath.row].name
+        UnitsandQty.text = "\(catItems[indexPath.section][indexPath.row].quantity)" + " " + "\(catItems[indexPath.section][indexPath.row].units)"
         // Configure the cell...
-        cell.textLabel?.text = items[indexPath.row].name
+        
         return cell
     }
- 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return cat[section]
+    }
+    
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let bought = boughtAction(at: indexPath)
         let delete = DeleteAction(at: indexPath)
