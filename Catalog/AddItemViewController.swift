@@ -12,31 +12,55 @@ import Parse
 class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var categoryPicker: UIPickerView!
+    @IBOutlet weak var preferedStorePicker: UIPickerView!
+    @IBOutlet weak var unitsPicker: UIPickerView!
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView.tag == 1 {
         return AppDelegate.pickerModel.Category.count
+        } else if pickerView.tag == 2{
+        return AppDelegate.pickerModel.PreferedStores.count
+        }else {
+            return AppDelegate.pickerModel.Unit.count
+        }
     }
     var dummy:Int = 0
+    var dummy1:Int = 0
+    var dummy2:Int = 0
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == categoryPicker{
         dummy = row
+        } else if pickerView == preferedStorePicker{
+            dummy1 = row
+        } else {
+            dummy2 = row
+        }
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == categoryPicker{
         return AppDelegate.pickerModel.Category[row]
+        }
+        else if pickerView == preferedStorePicker{
+            return AppDelegate.pickerModel.PreferedStores[row]
+        }else{
+            return AppDelegate.pickerModel.Unit[row]
+        }
     }
     
     @IBOutlet weak var itemNameTF: UITextField!
     @IBOutlet weak var itemQuantityTF: UITextField!
     @IBOutlet weak var unitsTF: UITextField!
     @IBOutlet weak var preferedStoreTF: UITextField!
-//    @IBOutlet weak var categoryTF: UITextField!
     @IBOutlet weak var errorMsgLBL: UILabel!
     
     @IBAction func AddItemBTN(sender: AnyObject) {
-        if((itemNameTF.text?.isEmpty)! || (itemQuantityTF.text?.isEmpty)! || (unitsTF.text?.isEmpty)! || (preferedStoreTF.text?.isEmpty)!)
+        if((itemNameTF.text?.isEmpty)! || (itemQuantityTF.text?.isEmpty)!)
+//            || (unitsTF.text?.isEmpty)! || (preferedStoreTF.text?.isEmpty)!)
 //            || (categoryTF.text?.isEmpty)!
         {
                                     errorMsgLBL.isHidden = false
@@ -47,10 +71,11 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let item = PFObject(className: "Item")
         item["name"] = itemNameTF.text
         item["quantity"] = Int(itemQuantityTF.text!)
-        item["units"] = unitsTF.text!
-        item["prefferedStore"] = preferedStoreTF.text
+//        item["units"] = unitsTF.text!
+//        item["prefferedStore"] = preferedStoreTF.text
 //        item["category"] = categoryTF.text
-            
+            item["units"] = AppDelegate.pickerModel.Unit[dummy2]
+            item["prefferedStore"] = AppDelegate.pickerModel.PreferedStores[dummy1]
         item["category"] = AppDelegate.pickerModel.Category[dummy]
             
 
