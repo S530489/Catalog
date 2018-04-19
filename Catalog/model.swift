@@ -30,7 +30,15 @@ class Item1:PFObject, PFSubclassing {
         return "Wehave"
     } }
 
+class User : PFObject,PFSubclassing {
+    @NSManaged var name:String
+    @NSManaged var email : String
+    static func parseClassName() -> String {
+        return "User"
+    }}
+
 class Model2{
+    var userNameForEmail : String = ""
     var Category = ["Grocery", "Health", "Electronics", "Fashion", "Wines and Spirits", "Stationary"]
     var Unit = ["lbs", "Gallons", "Dozen", "Units"]
     var PreferedStores = ["Walmart", "Hyvee", "BestBuy", "Costco", "JCPenny", "Target"]

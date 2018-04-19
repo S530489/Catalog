@@ -7,13 +7,40 @@
 //
 
 import UIKit
+import Parse
 
 class MeViewController: UIViewController {
+    
+    @IBOutlet weak var userNameTF: UITextField!
+    @IBOutlet weak var userEmailTF: UITextField!
+    
+//    var loggedInUserArray : [User] = []
+//    var loggedInUser : String = ""
+    
+//    func displayOKAlert(title: String, message: String) {
+//        let alert = UIAlertController(title: title, message:
+//            message, preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK",
+//                                      style: .default, handler: nil))
+//        self.present(alert, animated: true)
+//    }
+    var users : [BFTask<PFUser>] = []
+    func fetchItems() {
+        users.append(PFUser.getCurrentUserInBackground())
+        userNameTF.text = users[0].result?.username
+        userEmailTF.text = users[0].result?.email
+        
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        fetchItems()
     }
 
     override func didReceiveMemoryWarning() {

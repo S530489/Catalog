@@ -54,8 +54,9 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var itemNameTF: UITextField!
     @IBOutlet weak var itemQuantityTF: UITextField!
-    @IBOutlet weak var unitsTF: UITextField!
-    @IBOutlet weak var preferedStoreTF: UITextField!
+    
+//    @IBOutlet weak var unitsTF: UITextField!
+//    @IBOutlet weak var preferedStoreTF: UITextField!
     @IBOutlet weak var errorMsgLBL: UILabel!
     
     @IBAction func AddItemBTN(sender: AnyObject) {
