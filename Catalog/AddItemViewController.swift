@@ -91,7 +91,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     AppDelegate.pickerModel.fetchItems()
                     self.displayOKAlert(title: "Success!", message:"\(self.itemNameTF.text ?? "item") is added to List.")
                     self.itemNameTF.text?.removeAll()
-                    //                self.itemQuantityTF.text? = "1"
+                    self.itemQuantityTF.text? = "1"
                 } else {
                     print(error as Any)
                 }

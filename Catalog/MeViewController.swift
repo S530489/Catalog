@@ -22,7 +22,34 @@ class MeViewController: UIViewController {
         
         
     }
+    func displayOKAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message:
+            message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK",style: .default, handler: {(action) in
+            alert.dismiss(animated: true, completion: nil)
+            
+            
+        }))
+        self.present(alert, animated: true)
+    }
     
+    @IBAction func ChangePasswdACT(_ sender: Any) {
+        
+        let userEmail = AppDelegate.pickerModel.users[0].result?.email
+        PFUser.requestPasswordResetForEmail(inBackground: userEmail!,
+                                            block: { (success , error) -> Void in
+                                                if(success){
+                                                    self.displayOKAlert(title: "Success!",
+                                                        message: "Email was sent to you at \(userEmail!)")
+                                                    return
+                                                }
+                                                if(error != nil){
+                                                    self.displayOKAlert(title: "Error in Recovery", message: "Error occured")
+                                                    print("************************/n")
+                                                    print(error!)
+                                                }
+        })
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
