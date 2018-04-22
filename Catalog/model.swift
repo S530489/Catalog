@@ -14,7 +14,7 @@ class Item:PFObject, PFSubclassing {
     @NSManaged var name:String
     @NSManaged var quantity:Int
     @NSManaged var units:String
-    @NSManaged var preferedStore:String
+    @NSManaged var prefferedStore:String
     @NSManaged var category:String
     static func parseClassName() -> String {
         return "Item"
@@ -24,7 +24,7 @@ class Item1:PFObject, PFSubclassing {
     @NSManaged var name:String
     @NSManaged var quantity:Int
     @NSManaged var units:String
-    @NSManaged var preferedStore:String
+    @NSManaged var prefferedStore:String
     @NSManaged var category:String
     static func parseClassName() -> String {
         return "Wehave"
@@ -68,11 +68,7 @@ class Model2{
                     var temp : [Item] = []
                     
                     for i in self.items{
-                        print("==========")
-                        print(c)
-                        print(i)
-                        print(i.preferedStore)
-                        if c == i.preferedStore{
+                        if c == i.prefferedStore{
                             temp.append(i)
                         }
                         
