@@ -60,9 +60,7 @@ class Model2{
                 self.items = objects as! [Item]
                 // Do something with the found objects
                 // Like display them in a table view.
-                //self.moviesTV.reloadData()
-                print(self.items)
-                print("fetch loading")
+                //self.moviesTV.reloadData(
                 
                 self.catItems = []
                 self.cat = []
@@ -83,9 +81,7 @@ class Model2{
                     
                 }
                 //
-                print(self.cat)
-                print(self.catItems)
-                print("store loading")
+                
             }
                 
             else {

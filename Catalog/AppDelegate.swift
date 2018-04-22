@@ -10,11 +10,12 @@ import UIKit
 import Parse
 
 @UIApplicationMain
+// App deletegate class
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    static var myModel = model()
-    static var login = Login()
+//    static var myModel = model()
+//    static var login = Login()
     static var pickerModel = Model2()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

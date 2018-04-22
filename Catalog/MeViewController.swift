@@ -8,14 +8,14 @@
 
 import UIKit
 import Parse
-
+// class having functions for fetching the current user details from the parse
 class MeViewController: UIViewController {
     
     @IBOutlet weak var userNameLBL: UILabel!
     
     @IBOutlet weak var userEmailLBL: UILabel!
     
-    
+    // function for fetching userName and Email from parse
     func fetchItems() {
         userNameLBL.text = AppDelegate.pickerModel.users[0].result?.username
         userEmailLBL.text = AppDelegate.pickerModel.users[0].result?.email
@@ -35,18 +35,10 @@ class MeViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
     
 }
