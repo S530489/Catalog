@@ -11,8 +11,9 @@ import Parse
 
 class MeViewController: UIViewController {
     
-    @IBOutlet weak var userNameTF: UITextField!
-    @IBOutlet weak var userEmailTF: UITextField!
+    @IBOutlet weak var userNameLBL: UILabel!
+    
+    @IBOutlet weak var userEmailLBL: UILabel!
     
 //    var loggedInUserArray : [User] = []
 //    var loggedInUser : String = ""
@@ -24,11 +25,10 @@ class MeViewController: UIViewController {
 //                                      style: .default, handler: nil))
 //        self.present(alert, animated: true)
 //    }
-    var users : [BFTask<PFUser>] = []
+    
     func fetchItems() {
-        users.append(PFUser.getCurrentUserInBackground())
-        userNameTF.text = users[0].result?.username
-        userEmailTF.text = users[0].result?.email
+        userNameLBL.text = AppDelegate.pickerModel.users[0].result?.username
+        userEmailLBL.text = AppDelegate.pickerModel.users[0].result?.email
         
 
     }

@@ -76,8 +76,20 @@ class ListTableViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         return AppDelegate.pickerModel.cat[section]
     }
+    
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let view = UIView()
+//        view.backgroundColor = UIColor.gray
+//        let label = UILabel()
+//        label.text = AppDelegate.pickerModel.cat[section]
+//        label.textColor = UIColor.white
+//
+//        
+//        return view
+//    }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let bought = boughtAction(at: indexPath)
@@ -97,7 +109,7 @@ class ListTableViewController: UITableViewController {
         }
         //action.image = #imageLiteral(resourceName: "Trash")
         action.image = #imageLiteral(resourceName: "del")
-        action.backgroundColor = .red
+        action.backgroundColor = UIColor.red
         return action
     }
     
@@ -108,7 +120,7 @@ class ListTableViewController: UITableViewController {
             item["name"] = AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].name
             item["quantity"] = AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].quantity
             item["units"] = AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].units
-            item["prefferedStore"] = AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].preferedStore
+            item["prefferedStore"] = AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].prefferedStore
             item["category"] = AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].category
             
             

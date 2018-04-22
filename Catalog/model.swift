@@ -14,7 +14,7 @@ class Item:PFObject, PFSubclassing {
     @NSManaged var name:String
     @NSManaged var quantity:Int
     @NSManaged var units:String
-    @NSManaged var preferedStore:String
+    @NSManaged var prefferedStore:String
     @NSManaged var category:String
     static func parseClassName() -> String {
         return "Item"
@@ -24,7 +24,7 @@ class Item1:PFObject, PFSubclassing {
     @NSManaged var name:String
     @NSManaged var quantity:Int
     @NSManaged var units:String
-    @NSManaged var preferedStore:String
+    @NSManaged var prefferedStore:String
     @NSManaged var category:String
     static func parseClassName() -> String {
         return "Wehave"
@@ -42,7 +42,10 @@ class Model2{
     var Category = ["Grocery", "Health", "Electronics", "Fashion", "Wines and Spirits", "Stationary"]
     var Unit = ["lbs", "Gallons", "Dozen", "Units"]
     var PreferedStores = ["Walmart", "Hyvee", "BestBuy", "Costco", "JCPenny", "Target"]
-    
+    var users : [BFTask<PFUser>] = []
+    func fetchUser(){
+    AppDelegate.pickerModel.users.append(PFUser.getCurrentUserInBackground())
+    }
     var items:[Item] = []
     var catItems : [[Item]] = []
     var cat : [String] = []
@@ -60,6 +63,7 @@ class Model2{
                 //self.moviesTV.reloadData()
                 print(self.items)
                 print("fetch loading")
+                
                 self.catItems = []
                 self.cat = []
                 //        print(items.count)
@@ -67,11 +71,7 @@ class Model2{
                     var temp : [Item] = []
                     
                     for i in self.items{
-                        print("==========")
-                        print(c)
-                        print(i)
-                        print(i.preferedStore)
-                        if c == i.preferedStore{
+                        if c == i.prefferedStore{
                             temp.append(i)
                         }
                         

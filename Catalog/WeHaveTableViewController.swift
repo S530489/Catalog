@@ -88,7 +88,7 @@ class WeHaveTableViewController: UITableViewController {
             item["name"] = self.items[indexpath.row].name
             item["quantity"] = self.items[indexpath.row].quantity
             item["units"] = self.items[indexpath.row].units
-            item["prefferedStore"] = self.items[indexpath.row].preferedStore
+            item["prefferedStore"] = self.items[indexpath.row].prefferedStore
             item["category"] = self.items[indexpath.row].category
             
             
