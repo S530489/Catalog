@@ -11,10 +11,21 @@ import Parse
 
 class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var itemNameTF: UITextField!
+    @IBOutlet weak var itemQuantityTF: UITextField!
+    @IBOutlet weak var errorMsgLBL: UILabel!
+    
     //Outlet creation of three picker views
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var preferedStorePicker: UIPickerView!
     @IBOutlet weak var unitsPicker: UIPickerView!
+    
+    @IBAction func stepperAction(_ sender: UIStepper) {
+//        itemQuantityTF.text = (sender as AnyObject).text
+        itemQuantityTF.text = String(Int(sender.value))
+        
+    }
+    
     
     // function for no. of components in the picker view
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -54,38 +65,30 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
-    @IBOutlet weak var itemNameTF: UITextField!
-    @IBOutlet weak var itemQuantityTF: UITextField!
-    
-//    @IBOutlet weak var unitsTF: UITextField!
-//    @IBOutlet weak var preferedStoreTF: UITextField!
-    @IBOutlet weak var errorMsgLBL: UILabel!
+  
     
     @IBAction func AddItemBTN(sender: AnyObject) {
         if((itemNameTF.text?.isEmpty)! || (itemQuantityTF.text?.isEmpty)!)
-//            || (unitsTF.text?.isEmpty)! || (preferedStoreTF.text?.isEmpty)!)
-//            || (categoryTF.text?.isEmpty)!
         {
-                                    errorMsgLBL.isHidden = false
-                                    errorMsgLBL.text = "Fields cannot be empty."
+            errorMsgLBL.isHidden = false
+            errorMsgLBL.text = "Fields cannot be empty."
         }
         else
         {
         let item = PFObject(className: "Item")
         item["name"] = itemNameTF.text
         item["quantity"] = Int(itemQuantityTF.text!)
-//        item["units"] = unitsTF.text!
-//        item["prefferedStore"] = preferedStoreTF.text
-//        item["category"] = categoryTF.text
-            item["units"] = AppDelegate.pickerModel.Unit[dummy2]
-            item["prefferedStore"] = AppDelegate.pickerModel.PreferedStores[dummy1]
-            item["category"] = AppDelegate.pickerModel.Category[dummy]
+        item["units"] = AppDelegate.pickerModel.Unit[dummy2]
+        item["prefferedStore"] = AppDelegate.pickerModel.PreferedStores[dummy1]
+        item["category"] = AppDelegate.pickerModel.Category[dummy]
             
 
         item.saveInBackground(block: { (success, error) -> Void in
             if success {
                 AppDelegate.pickerModel.fetchItems()
-                self.displayOKAlert(title: "Success!", message:"Item saved.")
+                self.displayOKAlert(title: "Success!", message:"\(self.itemNameTF.text ?? "item") is added to List.")
+                self.itemNameTF.text?.removeAll()
+//                self.itemQuantityTF.text? = "1"
             } else {
                 print(error as Any)
             }
