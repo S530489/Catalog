@@ -15,16 +15,6 @@ class MeViewController: UIViewController {
     
     @IBOutlet weak var userEmailLBL: UILabel!
     
-//    var loggedInUserArray : [User] = []
-//    var loggedInUser : String = ""
-    
-//    func displayOKAlert(title: String, message: String) {
-//        let alert = UIAlertController(title: title, message:
-//            message, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK",
-//                                      style: .default, handler: nil))
-//        self.present(alert, animated: true)
-//    }
     
     func fetchItems() {
         userNameLBL.text = AppDelegate.pickerModel.users[0].result?.username
