@@ -10,6 +10,7 @@
 import Foundation
 import Parse
 
+
 class Item:PFObject, PFSubclassing {
     @NSManaged var name:String
     @NSManaged var quantity:Int
