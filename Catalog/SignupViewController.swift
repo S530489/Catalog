@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 class SignupViewController: UIViewController {
-
+    
     
     @IBOutlet weak var LogoImage: UIImageView!
     
@@ -24,7 +24,7 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         LogoImage.image = #imageLiteral(resourceName: "loginLOGO")
@@ -32,19 +32,19 @@ class SignupViewController: UIViewController {
         emailTF.leftViewMode = .always
         passwordTF.leftViewMode = .always
         reenterPasswordTF.leftViewMode = .always
-
+        
         let imageTextView = UIImageView()
         imageTextView.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
         imageTextView.image = #imageLiteral(resourceName: "username")
         nameTF.leftView = imageTextView
-
-
+        
+        
         let imageTextEmail = UIImageView()
         imageTextEmail.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
         imageTextEmail.image = #imageLiteral(resourceName: "email")
         emailTF
             .leftView = imageTextEmail
-
+        
         let imageTextViewPassword = UIImageView()
         imageTextViewPassword.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
         imageTextViewPassword.image = #imageLiteral(resourceName: "password")
@@ -55,19 +55,19 @@ class SignupViewController: UIViewController {
         imageTextViewRePassword.image = #imageLiteral(resourceName: "password")
         reenterPasswordTF.leftView = imageTextViewRePassword
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        
     }
     
     // Action for the cancel button in signup view controller
     @IBAction func cancelACT(_ sender: Any) {
-       self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     // Display alert function for the signup view controller
@@ -84,7 +84,7 @@ class SignupViewController: UIViewController {
     
     //Action for registering a new user for the button Signup
     @IBAction func register(sender: AnyObject) {
-         //Defining the user object
+        //Defining the user object
         let user = PFUser()
         user.username = nameTF.text!
         user.password = passwordTF.text!
@@ -107,7 +107,7 @@ class SignupViewController: UIViewController {
                 }
             } })
     }
-
     
-
+    
+    
 }

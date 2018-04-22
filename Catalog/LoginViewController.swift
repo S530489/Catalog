@@ -10,14 +10,14 @@ import UIKit
 import Parse
 
 class LoginViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         MsgLBL.isHidden = true
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
     // Action for the signup button to perform a segue to signup view controller
     @IBAction func SignUpACT(_ sender: Any) {
         self.performSegue(withIdentifier: "signup", sender: Any?.self)
-
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -88,6 +88,6 @@ class LoginViewController: UIViewController {
         
     }
     
-   
-
+    
+    
 }

@@ -11,10 +11,21 @@ import Parse
 
 class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var itemNameTF: UITextField!
+    @IBOutlet weak var itemQuantityTF: UITextField!
+    @IBOutlet weak var errorMsgLBL: UILabel!
+    
     //Outlet creation of three picker views
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var preferedStorePicker: UIPickerView!
     @IBOutlet weak var unitsPicker: UIPickerView!
+    
+    @IBAction func stepperAction(_ sender: UIStepper) {
+        //        itemQuantityTF.text = (sender as AnyObject).text
+        itemQuantityTF.text = String(Int(sender.value))
+        
+    }
+    
     
     // function for no. of components in the picker view
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -24,9 +35,9 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     // Function for no. of rows in the component of picker view
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView.tag == 1 {
-        return AppDelegate.pickerModel.Category.count
+            return AppDelegate.pickerModel.Category.count
         } else if pickerView.tag == 2{
-        return AppDelegate.pickerModel.PreferedStores.count
+            return AppDelegate.pickerModel.PreferedStores.count
         }else {
             return AppDelegate.pickerModel.Unit.count
         }
@@ -45,7 +56,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == categoryPicker{
-        return AppDelegate.pickerModel.Category[row]
+            return AppDelegate.pickerModel.Category[row]
         }
         else if pickerView == preferedStorePicker{
             return AppDelegate.pickerModel.PreferedStores[row]
@@ -54,42 +65,34 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
-    @IBOutlet weak var itemNameTF: UITextField!
-    @IBOutlet weak var itemQuantityTF: UITextField!
     
-//    @IBOutlet weak var unitsTF: UITextField!
-//    @IBOutlet weak var preferedStoreTF: UITextField!
-    @IBOutlet weak var errorMsgLBL: UILabel!
     
     @IBAction func AddItemBTN(sender: AnyObject) {
         if((itemNameTF.text?.isEmpty)! || (itemQuantityTF.text?.isEmpty)!)
-//            || (unitsTF.text?.isEmpty)! || (preferedStoreTF.text?.isEmpty)!)
-//            || (categoryTF.text?.isEmpty)!
         {
-                                    errorMsgLBL.isHidden = false
-                                    errorMsgLBL.text = "Fields cannot be empty."
+            errorMsgLBL.isHidden = false
+            errorMsgLBL.text = "Fields cannot be empty."
         }
         else
         {
-        let item = PFObject(className: "Item")
-        item["name"] = itemNameTF.text
-        item["quantity"] = Int(itemQuantityTF.text!)
-//        item["units"] = unitsTF.text!
-//        item["prefferedStore"] = preferedStoreTF.text
-//        item["category"] = categoryTF.text
+            let item = PFObject(className: "Item")
+            item["name"] = itemNameTF.text
+            item["quantity"] = Int(itemQuantityTF.text!)
             item["units"] = AppDelegate.pickerModel.Unit[dummy2]
             item["prefferedStore"] = AppDelegate.pickerModel.PreferedStores[dummy1]
             item["category"] = AppDelegate.pickerModel.Category[dummy]
             
-
-        item.saveInBackground(block: { (success, error) -> Void in
-            if success {
-                AppDelegate.pickerModel.fetchItems()
-                self.displayOKAlert(title: "Success!", message:"Item saved.")
-            } else {
-                print(error as Any)
-            }
-        })
+            
+            item.saveInBackground(block: { (success, error) -> Void in
+                if success {
+                    AppDelegate.pickerModel.fetchItems()
+                    self.displayOKAlert(title: "Success!", message:"\(self.itemNameTF.text ?? "item") is added to List.")
+                    self.itemNameTF.text?.removeAll()
+                    //                self.itemQuantityTF.text? = "1"
+                } else {
+                    print(error as Any)
+                }
+            })
             
         }
     }
@@ -108,7 +111,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -117,7 +120,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     override func viewWillAppear(_ animated: Bool) {
         self.reloadInputViews()
     }
-
-
+    
+    
 }
 

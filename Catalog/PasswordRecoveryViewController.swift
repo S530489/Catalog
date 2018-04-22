@@ -10,15 +10,15 @@ import UIKit
 import Parse
 
 class PasswordRecoveryViewController: UIViewController {
-
+    
     @IBOutlet weak var loginLogo: UIImageView!
     @IBOutlet weak var UserEmailTXT: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -45,22 +45,22 @@ class PasswordRecoveryViewController: UIViewController {
     @IBAction func PasswordRecovery(_ sender: Any) {
         let userEmail = UserEmailTXT.text
         PFUser.requestPasswordResetForEmail(inBackground: userEmail!,
-                        block: { (success , error) -> Void in
-            if(success){
-                self.displayOKAlert(title: "Success!", message: "Email was sent to you at \(userEmail!)")
-                return
-            }
-            if(error != nil){
-                self.displayOKAlert(title: "Error in Recovery", message: "Error occured")
-                print("************************/n")
-                print(error!)
-            }
+                                            block: { (success , error) -> Void in
+                                                if(success){
+                                                    self.displayOKAlert(title: "Success!", message: "Email was sent to you at \(userEmail!)")
+                                                    return
+                                                }
+                                                if(error != nil){
+                                                    self.displayOKAlert(title: "Error in Recovery", message: "Error occured")
+                                                    print("************************/n")
+                                                    print(error!)
+                                                }
         })
         
     }
     
     @IBAction func Cancel(_ sender: Any) {
-       self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
