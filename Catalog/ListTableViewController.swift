@@ -84,7 +84,8 @@ class ListTableViewController: UITableViewController {
                 {(success,error) in
                     self.displayOKAlert(title: "Success!",
                                         message:"\(AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].name) is deleted ")
-            })
+      
+        })
             completion(true)
         }
 
