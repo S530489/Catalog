@@ -11,6 +11,7 @@ import Parse
 
 class SignupViewController: UIViewController {
 
+    
     @IBOutlet weak var LogoImage: UIImageView!
     
     @IBOutlet weak var nameTF: UITextField!
@@ -64,11 +65,12 @@ class SignupViewController: UIViewController {
 
     }
     
+    // Action for the cancel button in signup view controller
     @IBAction func cancelACT(_ sender: Any) {
        self.dismiss(animated: true, completion: nil)
     }
     
-    
+    // Display alert function for the signup view controller
     func displayOKAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message:
             message, preferredStyle: .alert)
@@ -80,6 +82,7 @@ class SignupViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    //Action for registering a new user for the button Signup
     @IBAction func register(sender: AnyObject) {
          //Defining the user object
         let user = PFUser()

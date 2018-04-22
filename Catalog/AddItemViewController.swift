@@ -11,15 +11,17 @@ import Parse
 
 class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    //Outlet creation of three picker views
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var preferedStorePicker: UIPickerView!
     @IBOutlet weak var unitsPicker: UIPickerView!
     
-    
+    // function for no. of components in the picker view
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
+    // Function for no. of rows in the component of picker view
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView.tag == 1 {
         return AppDelegate.pickerModel.Category.count

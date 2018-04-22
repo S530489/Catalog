@@ -37,6 +37,8 @@ class LoginViewController: UIViewController {
         imageTextViewPassword.image = #imageLiteral(resourceName: "password")
         passwordTF.leftView = imageTextViewPassword
     }
+    
+    // Action for the signup button to perform a segue to signup view controller
     @IBAction func SignUpACT(_ sender: Any) {
         self.performSegue(withIdentifier: "signup", sender: Any?.self)
 
@@ -47,7 +49,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     
     @IBOutlet weak var MsgLBL: UILabel!
-    
+    // Display alert function for the view
     func displayOKAlert(title: String, message: String) {
         
         let alert = UIAlertController(title: title, message:
@@ -59,6 +61,7 @@ class LoginViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    // Action for the login button in the login view controller
     @IBAction func login(sender: AnyObject) {
         PFUser.logInWithUsername(inBackground: usernameTF.text!, password: passwordTF.text!,
                                  block:{(user, error) -> Void in
@@ -75,6 +78,7 @@ class LoginViewController: UIViewController {
                                     } })
     }
     
+    // An unwind segue for the Signup view controller
     @IBAction func unwindFromSignup(segue : UIStoryboardSegue){
         
     }
