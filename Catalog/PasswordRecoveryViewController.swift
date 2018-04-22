@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 
+// A class having functions for passwordRecovery
 class PasswordRecoveryViewController: UIViewController {
     
     @IBOutlet weak var loginLogo: UIImageView!
@@ -31,6 +32,7 @@ class PasswordRecoveryViewController: UIViewController {
         imageTextEmail.image = #imageLiteral(resourceName: "email")
         UserEmailTXT.leftView = imageTextEmail
     }
+    // Alert Action
     func displayOKAlert(title: String, message: String) {
         
         let alert = UIAlertController(title: title, message:
@@ -41,7 +43,7 @@ class PasswordRecoveryViewController: UIViewController {
         }))
         self.present(alert, animated: true)
     }
-    
+    // Action method for password Recovery
     @IBAction func PasswordRecovery(_ sender: Any) {
         let userEmail = UserEmailTXT.text
         PFUser.requestPasswordResetForEmail(inBackground: userEmail!,
@@ -58,7 +60,7 @@ class PasswordRecoveryViewController: UIViewController {
         })
         
     }
-    
+    // Cancel button action method 
     @IBAction func Cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

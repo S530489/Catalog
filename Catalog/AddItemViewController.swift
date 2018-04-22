@@ -8,7 +8,7 @@
 
 import UIKit
 import Parse
-
+// class having functions for adding an item into the list
 class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var itemNameTF: UITextField!
@@ -19,7 +19,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var preferedStorePicker: UIPickerView!
     @IBOutlet weak var unitsPicker: UIPickerView!
-    
+    // stepper action for increasing the quantity of adding item
     @IBAction func stepperAction(_ sender: UIStepper) {
         //        itemQuantityTF.text = (sender as AnyObject).text
         itemQuantityTF.text = String(Int(sender.value))
@@ -45,6 +45,8 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var dummy:Int = 0
     var dummy1:Int = 0
     var dummy2:Int = 0
+    
+    // function for knowing which row has been selected in the picker view
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == categoryPicker{
             dummy = row
@@ -54,6 +56,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             dummy2 = row
         }
     }
+    // function for populating the data of the picker view
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == categoryPicker{
             return AppDelegate.pickerModel.Category[row]
@@ -66,7 +69,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     
-    
+    // Action method to add an item to the buying list
     @IBAction func AddItemBTN(sender: AnyObject) {
         if((itemNameTF.text?.isEmpty)! || (itemQuantityTF.text?.isEmpty)!)
         {
@@ -96,7 +99,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
         }
     }
-    
+    // Alert action 
     func displayOKAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message:
             message, preferredStyle: .alert)

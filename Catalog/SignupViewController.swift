@@ -8,7 +8,7 @@
 
 import UIKit
 import Parse
-
+// class having functions for signing a user 
 class SignupViewController: UIViewController {
     
     

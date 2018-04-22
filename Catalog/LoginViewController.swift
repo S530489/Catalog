@@ -8,7 +8,7 @@
 
 import UIKit
 import Parse
-
+// class having functions for logging a user
 class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
