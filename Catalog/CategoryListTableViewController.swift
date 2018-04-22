@@ -12,6 +12,7 @@ class CategoryListTableViewController: UITableViewController {
     
     var items:[Item] = [];
     var ItemsInCat:[Item] = [];
+    
     // Action method for fetching all the items from parse
     func fetchItems() {
         let query = PFQuery(className:"Item")     // Fetches all the item objects
@@ -48,18 +49,18 @@ class CategoryListTableViewController: UITableViewController {
     }
     
     
-    // Action method for number of sections in the view
+    // function for number of sections in the view
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    // Action method for returning number of rows in a section
+    // function for returning number of rows in a section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return AppDelegate.pickerModel.Category.count
     }
     
-    // Action method for returing the cell with the category name in it
+    // function for returing the cell with the category name in it
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryList", for: indexPath)
         
@@ -67,7 +68,7 @@ class CategoryListTableViewController: UITableViewController {
         cell.textLabel?.text = AppDelegate.pickerModel.Category[indexPath.row]
         return cell
     }
-    // Action method for displaying the items in the selected(tapped) category by performing segue
+    // function for displaying the items in the selected(tapped) category by performing segue
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ItemsInCat = []
         let cat = AppDelegate.pickerModel.Category[indexPath.row]
@@ -89,7 +90,7 @@ class CategoryListTableViewController: UITableViewController {
         
     }
     
-    // Action method to perform segue from categogy view controller to items in the category view controller
+    // function to perform segue from categogy view controller to items in the category view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let Destination = segue.destination as! ItemsInCategoryTableViewController
         

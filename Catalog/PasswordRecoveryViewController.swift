@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+
 // A class having functions for passwordRecovery
 class PasswordRecoveryViewController: UIViewController {
     
@@ -42,7 +43,7 @@ class PasswordRecoveryViewController: UIViewController {
         }))
         self.present(alert, animated: true)
     }
-    // Action for password Recovery
+    // Action method for password Recovery
     @IBAction func PasswordRecovery(_ sender: Any) {
         let userEmail = UserEmailTXT.text
         PFUser.requestPasswordResetForEmail(inBackground: userEmail!,
