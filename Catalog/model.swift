@@ -60,6 +60,7 @@ class Model2{
                 //self.moviesTV.reloadData()
                 print(self.items)
                 print("fetch loading")
+                
                 self.catItems = []
                 self.cat = []
                 //        print(items.count)
