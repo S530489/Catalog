@@ -44,6 +44,11 @@ class LoginViewController: UIViewController {
 
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        usernameTF.text?.removeAll()
+        passwordTF.text?.removeAll()
+    }
+    
     @IBOutlet weak var LogoImageView: UIImageView!
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!

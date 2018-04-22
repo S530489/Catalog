@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Item1.registerSubclass()
         User.registerSubclass()
         AppDelegate.pickerModel.fetchItems()
+        AppDelegate.pickerModel.fetchUser()
         
 
         

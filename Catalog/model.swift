@@ -42,7 +42,10 @@ class Model2{
     var Category = ["Grocery", "Health", "Electronics", "Fashion", "Wines and Spirits", "Stationary"]
     var Unit = ["lbs", "Gallons", "Dozen", "Units"]
     var PreferedStores = ["Walmart", "Hyvee", "BestBuy", "Costco", "JCPenny", "Target"]
-    
+    var users : [BFTask<PFUser>] = []
+    func fetchUser(){
+    AppDelegate.pickerModel.users.append(PFUser.getCurrentUserInBackground())
+    }
     var items:[Item] = []
     var catItems : [[Item]] = []
     var cat : [String] = []
