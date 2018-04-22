@@ -95,6 +95,7 @@ class WeHaveTableViewController: UITableViewController {
             item.saveInBackground(block: { (success, error) -> Void in
                 if success {
                     print("\(self.items[indexpath.row].name) is successfully added to List class")
+                    AppDelegate.pickerModel.fetchItems()
                 } else {
                     print(error as Any)
                 }
@@ -102,6 +103,7 @@ class WeHaveTableViewController: UITableViewController {
             
             self.items[indexpath.row].deleteInBackground(block:
                 {(success,error) in
+                    AppDelegate.pickerModel.fetchItems()
                     self.displayOKAlert(title: "Success!",
                                         message:"\(self.items[indexpath.row].name) is Moved to Required List")
             })

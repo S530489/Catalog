@@ -11,28 +11,7 @@ import Parse
 
 class ListTableViewController: UITableViewController {
     
-    var items:[Item] = []
-    var catItems : [[Item]] = []
-    var cat : [String] = []
-    func fetchItems() {
-        let query = PFQuery(className:"Item")     // Fetches all the Movie objects
-        query.findObjectsInBackground {   // what happened to the ( ) ?
-            (objects: [PFObject]?, error: Error?) -> Void in
-            if error == nil {
-                // The find succeeded.
-//                self.displayOKAlert(title: "Success!",
-//                                    message:"Retrieved \(objects!.count) objects.")
-                self.items = objects as! [Item]
-                // Do something with the found objects
-                // Like display them in a table view.
-                //self.moviesTV.reloadData()
-                self.tableView.reloadData()
-               
-            } else {
-                // Log details of the failure
-                self.displayOKAlert(title: "Oops", message: "\(error!)")
-            } }
-    }
+    
     func displayOKAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message:
             message, preferredStyle: .alert)
@@ -59,46 +38,28 @@ class ListTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     override func viewWillAppear(_ animated: Bool) {
-        fetchItems()
-        getStoreItems()
+        AppDelegate.pickerModel.fetchItems()
+       // AppDelegate.pickerModel.getStoreItems()
+        self.tableView.reloadData()
         
     }
-   
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        AppDelegate.pickerModel.fetchItems()
+        self.tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return cat.count
+        return AppDelegate.pickerModel.cat.count
     }
     
-    func getStoreItems(){
-            catItems = []
-            cat = []
-         print(items.count)
-            for c in AppDelegate.pickerModel.Category{
-                var temp : [Item] = []
-               
-                for i in items{
-                   
-                    if c == i.category{
-                        temp.append(i)
-                    }
-                   
-            }
-                if temp.count > 0{
-                    cat.append(c)
-                    catItems.append(temp)
-                }
-                
-        }
-        
-      print(cat)
-        print(catItems)
-    }
+   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return catItems[section].count
+        return AppDelegate.pickerModel.catItems[section].count
     }
 
 
@@ -108,14 +69,14 @@ class ListTableViewController: UITableViewController {
         let myItem  = cell.viewWithTag(100) as! UILabel
         let UnitsandQty = cell.viewWithTag(101) as! UILabel
         
-        myItem.text = catItems[indexPath.section][indexPath.row].name
-        UnitsandQty.text = "\(catItems[indexPath.section][indexPath.row].quantity)" + " " + "\(catItems[indexPath.section][indexPath.row].units)"
+        myItem.text = AppDelegate.pickerModel.catItems[indexPath.section][indexPath.row].name
+        UnitsandQty.text = "\(AppDelegate.pickerModel.catItems[indexPath.section][indexPath.row].quantity)" + " " + "\(AppDelegate.pickerModel.catItems[indexPath.section][indexPath.row].units)"
         // Configure the cell...
         
         return cell
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return cat[section]
+        return AppDelegate.pickerModel.cat[section]
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -127,10 +88,10 @@ class ListTableViewController: UITableViewController {
     
     func DeleteAction(at indexpath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete"){(action, view, completion) in
-            self.catItems[indexpath.section][indexpath.row].deleteInBackground(block:
+            AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].deleteInBackground(block:
                 {(success,error) in
                     self.displayOKAlert(title: "Success!",
-                                        message:"\(self.catItems[indexpath.section][indexpath.row].name) is deleted ")
+                                        message:"\(AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].name) is deleted ")
             })
             completion(true)
         }
@@ -144,25 +105,25 @@ class ListTableViewController: UITableViewController {
         let action = UIContextualAction(style: .destructive, title: "bought"){(action, view, completion) in
             
             let item = PFObject(className: "Wehave")
-            item["name"] = self.catItems[indexpath.section][indexpath.row].name
-            item["quantity"] = self.catItems[indexpath.section][indexpath.row].quantity
-            item["units"] = self.catItems[indexpath.section][indexpath.row].units
-            item["prefferedStore"] = self.catItems[indexpath.section][indexpath.row].preferedStore
-            item["category"] = self.catItems[indexpath.section][indexpath.row].category
+            item["name"] = AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].name
+            item["quantity"] = AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].quantity
+            item["units"] = AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].units
+            item["prefferedStore"] = AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].preferedStore
+            item["category"] = AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].category
             
             
             item.saveInBackground(block: { (success, error) -> Void in
                 if success {
-                    print("\(self.catItems[indexpath.section][indexpath.row].name) is successfully added to we have class")
+                    print("\(AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].name) is successfully added to we have class")
                 } else {
                     print(error as Any)
                 }
             })
             
-            self.catItems[indexpath.section][indexpath.row].deleteInBackground(block:
+            AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].deleteInBackground(block:
                 {(success,error) in
                     self.displayOKAlert(title: "Success!",
-                                        message:"\(self.catItems[indexpath.section][indexpath.row].name) is Moved to Wehave List")
+                                        message:"\(AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].name) is Moved to Wehave List")
             })
             completion(true)
         }
