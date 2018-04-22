@@ -9,8 +9,8 @@
 import UIKit
 import Parse
 
+// List containing functions for the table view to display the items in table view
 class ListTableViewController: UITableViewController {
-    
     
     func displayOKAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message:
@@ -23,25 +23,16 @@ class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    //    override func viewDidAppear(_ animated: Bool) {
-    //        fetchItems()
-    //        getStoreItems()
-    //    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         AppDelegate.pickerModel.fetchItems()
-        // AppDelegate.pickerModel.getStoreItems()
         self.tableView.reloadData()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -49,21 +40,18 @@ class ListTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    // MARK: - Table view data source
-    
+    // Function for returning no. of sections in the table view
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return AppDelegate.pickerModel.cat.count
     }
     
-    
+    // Function for returning no. of rows in each section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return AppDelegate.pickerModel.catItems[section].count
     }
     
-    
-    
+    // Function for displaying the rows in the table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListOfItems", for: indexPath)
         let myItem  = cell.viewWithTag(100) as! UILabel
@@ -71,26 +59,17 @@ class ListTableViewController: UITableViewController {
         
         myItem.text = AppDelegate.pickerModel.catItems[indexPath.section][indexPath.row].name
         UnitsandQty.text = "\(AppDelegate.pickerModel.catItems[indexPath.section][indexPath.row].quantity)" + " " + "\(AppDelegate.pickerModel.catItems[indexPath.section][indexPath.row].units)"
-        // Configure the cell...
         
         return cell
     }
+    
+    // function for returning the section header for the table view
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         return AppDelegate.pickerModel.cat[section]
     }
     
-    //    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //        let view = UIView()
-    //        view.backgroundColor = UIColor.gray
-    //        let label = UILabel()
-    //        label.text = AppDelegate.pickerModel.cat[section]
-    //        label.textColor = UIColor.white
-    //
-    //
-    //        return view
-    //    }
-    
+    // Function for the swipe action inthe list table view the action displays a delete and bought button to rows in table view
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let bought = boughtAction(at: indexPath)
         let delete = DeleteAction(at: indexPath)
@@ -98,6 +77,7 @@ class ListTableViewController: UITableViewController {
         return UISwipeActionsConfiguration(actions: [bought,delete])
     }
     
+    // Function for the delete action after the swipe function in called
     func DeleteAction(at indexpath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete"){(action, view, completion) in
             AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].deleteInBackground(block:
@@ -107,12 +87,13 @@ class ListTableViewController: UITableViewController {
             })
             completion(true)
         }
-        //action.image = #imageLiteral(resourceName: "Trash")
+
         action.image = #imageLiteral(resourceName: "del")
         action.backgroundColor = UIColor.red
         return action
     }
     
+    // Function for the bought action after the swipe function in called
     func boughtAction(at indexpath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "bought"){(action, view, completion) in
             
@@ -140,57 +121,10 @@ class ListTableViewController: UITableViewController {
             completion(true)
         }
         
-        //action.image = #imageLiteral(resourceName: "bought")
         action.image = #imageLiteral(resourceName: "bought")
         action.backgroundColor = .green
         return action
         
     }
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
 }
