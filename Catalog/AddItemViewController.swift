@@ -84,6 +84,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
         item.saveInBackground(block: { (success, error) -> Void in
             if success {
+                AppDelegate.pickerModel.fetchItems()
                 self.displayOKAlert(title: "Success!", message:"Item saved.")
             } else {
                 print(error as Any)
