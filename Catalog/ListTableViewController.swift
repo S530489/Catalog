@@ -83,8 +83,10 @@ class ListTableViewController: UITableViewController {
         let action = UIContextualAction(style: .destructive, title: "Delete"){(action, view, completion) in
             AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].deleteInBackground(block:
                 {(success,error) in
+                    
                     self.displayOKAlert(title: "Success!",
                                         message:"\(AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].name) is deleted ")
+                   
       
         })
             completion(true)
@@ -110,6 +112,7 @@ class ListTableViewController: UITableViewController {
             item.saveInBackground(block: { (success, error) -> Void in
                 if success {
                     print("\(AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].name) is successfully added to we have class")
+                    
                 } else {
                     print(error as Any)
                 }
@@ -119,6 +122,7 @@ class ListTableViewController: UITableViewController {
                 {(success,error) in
                     self.displayOKAlert(title: "Success!",
                                         message:"\(AppDelegate.pickerModel.catItems[indexpath.section][indexpath.row].name) is Moved to Wehave List")
+                    
             })
             completion(true)
         }
