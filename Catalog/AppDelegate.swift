@@ -18,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    static var login = Login()
     static var pickerModel = Model2()
     
+    
+//    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+//        AppDelegate.pickerModel.fetchUser()
+//        return true
+//    }
+//    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let configuration = ParseClientConfiguration {

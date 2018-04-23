@@ -16,10 +16,14 @@ class MeViewController: UIViewController {
     @IBOutlet weak var userEmailLBL: UILabel!
     
     // function for fetching userName and Email from parse
-    func fetchItems() {
-        userNameLBL.text = AppDelegate.pickerModel.users[0].result?.username
-        userEmailLBL.text = AppDelegate.pickerModel.users[0].result?.email
+    func fetchUserDetails() {
         
+        
+        //        AppDelegate.pickerModel.fetchUser()
+        userNameLBL.text = AppDelegate.pickerModel.users.last?.result?.username
+        userEmailLBL.text = AppDelegate.pickerModel.users.last?.result?.email
+        //        userEmailLBL.text = AppDelegate.pickerModel.users[0].result?.email
+        //
         
     }
     func displayOKAlert(title: String, message: String) {
@@ -35,22 +39,23 @@ class MeViewController: UIViewController {
     
     @IBAction func LogoutACT(_ sender: Any) {
         PFUser.logOut()
+        AppDelegate.pickerModel.users = []
         print("logout performed")
         
-       //AppDelegate.pickerModel.users.remove(at: 0)
+        //AppDelegate.pickerModel.users.remove(at: 0)
         
     }
     
-  
+    
     
     @IBAction func ChangePasswdACT(_ sender: Any) {
         
-        let userEmail = AppDelegate.pickerModel.users[0].result?.email
+        let userEmail = AppDelegate.pickerModel.users.last?.result?.email
         PFUser.requestPasswordResetForEmail(inBackground: userEmail!,
                                             block: { (success , error) -> Void in
                                                 if(success){
                                                     self.displayOKAlert(title: "Success!",
-                                                        message: "Email was sent to you at \(userEmail!)")
+                                                                        message: "Email was sent to you at \(userEmail!)")
                                                     return
                                                 }
                                                 if(error != nil){
@@ -62,12 +67,17 @@ class MeViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.fetchUserDetails()
         
         
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        fetchItems()
+
+        self.fetchUserDetails()
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,6 +86,6 @@ class MeViewController: UIViewController {
     }
     
     
-
+    
     
 }

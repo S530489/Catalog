@@ -78,6 +78,7 @@ class LoginViewController: UIViewController {
                                     else {
                                         // Everything went alright here
                                         AppDelegate.pickerModel.userNameForEmail = self.usernameTF.text!
+                                        AppDelegate.pickerModel.fetchUser()
                                         self.displayOKAlert(title: "Success!", message:"Login successful")
                                         
                                         

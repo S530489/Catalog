@@ -31,6 +31,7 @@ class ListTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+//        AppDelegate.pickerModel.fetchUser()
         AppDelegate.pickerModel.fetchItems()
         self.tableView.reloadData()
     }

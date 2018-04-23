@@ -43,12 +43,19 @@ class Model2{
     var Unit = ["lbs", "Gallons", "Dozen", "Units"]
     var PreferedStores = ["Walmart", "Hyvee", "BestBuy", "Costco", "JCPenny", "Target"]
     var users : [BFTask<PFUser>] = []
+//    init() {
+//        self.users = []
+//        self.fetchUser()
+//    }
+    
     func fetchUser(){
+        var users : [BFTask<PFUser>] = []
         AppDelegate.pickerModel.users.append(PFUser.getCurrentUserInBackground())
     }
     var items:[Item] = []
     var catItems : [[Item]] = []
     var cat : [String] = []
+    
     func fetchItems() {
         let query = PFQuery(className:"Item")     // Fetches all the Movie objects
         query.findObjectsInBackground {   // what happened to the ( ) ?
