@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        MsgLBL.isHidden = true
         LogoImageView.image  = #imageLiteral(resourceName: "loginLOGO")
         usernameTF.leftViewMode = .always
         passwordTF.leftViewMode = .always

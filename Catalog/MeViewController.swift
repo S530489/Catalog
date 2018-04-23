@@ -33,6 +33,16 @@ class MeViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    @IBAction func LogoutACT(_ sender: Any) {
+        PFUser.logOut()
+        print("logout performed")
+        
+       //AppDelegate.pickerModel.users.remove(at: 0)
+        
+    }
+    
+  
+    
     @IBAction func ChangePasswdACT(_ sender: Any) {
         
         let userEmail = AppDelegate.pickerModel.users[0].result?.email
